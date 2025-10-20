@@ -48,8 +48,12 @@ public class InventoryManager : MonoBehaviour{
         }
     }
     public void ToggleInventoryUI() {
-        inventoryUI.SetActive(!inventoryUI.activeSelf);
-    }
+    bool willOpen = !inventoryUI.activeSelf;
+    inventoryUI.SetActive(willOpen);
+    Time.timeScale = willOpen ? 0 : 1; // Pause when open, resume when closed
+}
+
+
 
     public void AddItem(Item item) {
         if (itemCounts.ContainsKey(item))
