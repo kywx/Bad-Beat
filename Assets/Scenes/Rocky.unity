@@ -394,7 +394,8 @@ PrefabInstance:
       propertyPath: default_spawn_point.y
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8216717413785761682, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
