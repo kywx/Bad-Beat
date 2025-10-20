@@ -4,7 +4,7 @@ public class PlayerHealthAndRespawn : MonoBehaviour{
 
     public Vector2 default_spawn_point; //default spawn point to be set for each scene.
 
-    public Vector2 spawn_point;
+    private Vector2 spawn_point;
     private int health;
     public int max_health;
     
