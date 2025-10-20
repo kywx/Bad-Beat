@@ -21,7 +21,7 @@ public class PlayerHealthAndRespawn : MonoBehaviour{
         }
     }
 
-    public void Update_checkpoint(Vector2 new_pos){
+    public void UpdateCheckpoint(Vector2 new_pos){
         spawn_point = new_pos;
     }
 

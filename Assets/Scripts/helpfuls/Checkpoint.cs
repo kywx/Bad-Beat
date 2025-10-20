@@ -8,7 +8,7 @@ public class Checkpoint : MonoBehaviour {
         if(player != null){
             Vector2 new_spawn = this.transform.position;
 
-            player.Update_checkpoint(new_spawn);
+            player.UpdateCheckpoint(new_spawn);
         }
     }
 }
