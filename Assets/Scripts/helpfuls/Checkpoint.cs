@@ -3,7 +3,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider){
-        PlayerHealthAndRespawn player = collider.GetComponentInParent<PlayerHealthAndRespawn>();
+        PlayerRespawn player = collider.GetComponentInParent<PlayerRespawn>();
 
         if(player != null){
             Vector2 new_spawn = this.transform.position;

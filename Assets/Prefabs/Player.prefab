@@ -447,7 +447,8 @@ GameObject:
   - component: {fileID: 2772646647779193249}
   - component: {fileID: 8303579779211601857}
   - component: {fileID: 6147978352683803087}
-  - component: {fileID: 8216717413785761682}
+  - component: {fileID: 5124535627713847902}
+  - component: {fileID: 1584322286571426345}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -570,7 +571,7 @@ MonoBehaviour:
   MoveStats: {fileID: 11400000, guid: 0a942f5529e03c040aaf5269e942166e, type: 2}
   _bodyCollider: {fileID: 7554346085562379200}
   _feetCollider: {fileID: 8242940767324911002}
---- !u!114 &8216717413785761682
+--- !u!114 &5124535627713847902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -579,8 +580,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 7670270333212235005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01956bb7077e20c429fb4cb2756d1524, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e27616cd6fdf05438810c2f9d0a5ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_health: 2
+  MaxHealth: 2
+--- !u!114 &1584322286571426345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670270333212235005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c11493f844a004c9d7b6666dca7fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   default_spawn_point: {x: 0, y: 0}
