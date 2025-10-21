@@ -1,15 +1,17 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour{
+public class PlayerCombatStats : MonoBehaviour{
 
     private int _health;
-    public int MaxHealth;
+
+    public PlayerCombatStatsSO stats;
+    //
     private PlayerRespawn RespawnManager;
 
     
     private void Awake(){
         RespawnManager = this.GetComponent<PlayerRespawn>();
-        _health = MaxHealth;
+        _health = stats.MaxHealth;
     }
     
     public void Damage(int dmg){
@@ -20,11 +22,11 @@ public class PlayerHealth : MonoBehaviour{
     }
 
     public void Heal(int amt){
-        _health = Mathf.Max(MaxHealth, _health + amt);
+        _health = Mathf.Max(stats.MaxHealth, _health + amt);
     }
 
     public void HealToMax(){
-        _health = MaxHealth;
+        _health = stats.MaxHealth;
     }
 
 }
