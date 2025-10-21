@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Player Combat Stats
   m_EditorClassIdentifier: 
   MaxHealth: 2
-  AttackDamage: 0
-  RespawnManager: {fileID: 0}
+  AttackDamage: 1

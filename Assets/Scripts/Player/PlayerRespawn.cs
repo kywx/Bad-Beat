@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour {
     public Vector2 default_spawn_point; //default spawn point to be set for each scene.
-    private PlayerCombatStats HealthManager;
+    private PlayerHealth HealthManager;
 
     private Vector2 spawn_point;
 
@@ -11,7 +11,7 @@ public class PlayerRespawn : MonoBehaviour {
     }
 
     public void Awake(){
-        HealthManager = this.GetComponent<PlayerCombatStats>();
+        HealthManager = this.GetComponent<PlayerHealth>();
     }
 
     public void Respawn(){
