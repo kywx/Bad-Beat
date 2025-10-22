@@ -17,6 +17,8 @@ public class MovingPlatformScript : MonoBehaviour
 
     private Transform curTarget; // Current target
     private bool delayed; // Determines if it should move or not
+    private GameObject player;
+    private Quaternion zeroRotation = Quaternion.Euler(0f, 0f, 0f);
     
     void Start() {
         curTarget = targetA.transform;
@@ -53,8 +55,13 @@ public class MovingPlatformScript : MonoBehaviour
         }
     }
 
+    private void LateUpdate() {
+        player.transform.rotation = zeroRotation;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+            player = collision.gameObject;
             waitForPlayer = false;
             collision.transform.SetParent(this.transform);
         }
@@ -62,6 +69,7 @@ public class MovingPlatformScript : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+            player = collision.gameObject;
             collision.transform.SetParent(null);
         }
     }

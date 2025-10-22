@@ -20,6 +20,7 @@ public class DisappearingPlatform : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnCollisionEnter2D(Collision2D collision) {
         if (fadeEnabled & visible & collision.gameObject.CompareTag("Player")) {
+            fadeEnabled = false;
             Invoke("fade", delay);
         }
     }
@@ -36,6 +37,7 @@ public class DisappearingPlatform : MonoBehaviour
             this.GetComponent<Rigidbody2D>().simulated = true;
             this.GetComponent<SpriteRenderer>().color = curCol;
             visible = true;
+            fadeEnabled = true;
         }
     }
 }
