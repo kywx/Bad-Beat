@@ -1,15 +1,17 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyDefaultStats", menuName = "Scriptable Objects/Enemy/EnemyDefaultStats")]
-public class EnemyDefaultStats : ScriptableObject
-{
-    [System.Serializable]
+[System.Serializable]
     public enum Element
     {
         Fire,
         Water,
         Leaf
     }
+
+[CreateAssetMenu(fileName = "EnemyDefaultStats", menuName = "Scriptable Objects/Enemy/EnemyDefaultStats")]
+public class EnemyDefaultStats : ScriptableObject
+{
+    
 
     [Header("Health")]
 
