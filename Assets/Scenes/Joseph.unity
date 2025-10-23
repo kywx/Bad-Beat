@@ -263,7 +263,6 @@ GameObject:
   m_Component:
   - component: {fileID: 497686809}
   - component: {fileID: 497686808}
-  - component: {fileID: 497686807}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -271,18 +270,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &497686807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497686806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 408b9f868f2153544aa1fc355babfa4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &497686808
 SpriteRenderer:
   m_ObjectHideFlags: 0

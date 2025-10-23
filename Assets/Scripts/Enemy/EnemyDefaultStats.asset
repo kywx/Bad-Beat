@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ee7ea70214f1f4faa7546b49366ff6, type: 3}
   m_Name: EnemyDefaultStats
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 20
   armor: 0
-  resistanceModifier: 0
-  vulnerabilityModifier: 0
+  resistanceModifier: 1
+  vulnerabilityModifier: 1
   weakness: 0
   strength: 0
-  groundSpeed: 0
-  airSpeed: 0
-  knockbackResistance: 0
-  stoppingDistance: 0
-  startChaseDistance: 0
-  minAttackRange: 0
-  maxAttackRange: 0
-  attackCooldown: 0
-  attackDamage: 0
+  groundSpeed: 1
+  airSpeed: 1
+  knockbackResistance: 1
+  stoppingDistance: 1
+  startChaseDistance: 2
+  minAttackRange: 1
+  maxAttackRange: 2
+  attackCooldown: 1
+  attackDamage: 1
   probability: 0
