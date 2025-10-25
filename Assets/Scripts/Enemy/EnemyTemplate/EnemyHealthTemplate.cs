@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public abstract class EnemyTemplate : MonoBehaviour
+public abstract class EnemyHealthTemplate : MonoBehaviour
 {
     [SerializeField] protected EnemyDefaultStats _enemyStats;
 
-    // general variables all enemies need when initialized
+    // general health variables all enemies may want when initialized
     protected float _hp;
-    protected float _attackCooldown; // this will tick down and be set equal to the SO's cooldown when it's <= 0
+    protected int _armor;
     
 
     protected virtual void Awake()
     {
         _hp = _enemyStats.hp; // starting health
-        _attackCooldown = _enemyStats.attackCooldown; // maybe redundant
+        _armor = _enemyStats.armor; // starting armor
 
     }
 
@@ -35,10 +35,19 @@ public abstract class EnemyTemplate : MonoBehaviour
 
         if (_hp <= 0) Die();
     }
-    
+
     public virtual void Die()
     {
-        //
+        Destroy(gameObject);
+    }
+    
+    protected virtual void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Trap") // change the string if the tag is wrong
+        {
+            Die();
+        }
+        
     }
     
     

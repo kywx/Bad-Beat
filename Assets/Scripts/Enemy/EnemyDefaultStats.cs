@@ -44,6 +44,8 @@ public class EnemyDefaultStats : ScriptableObject
     [SerializeField] public float attackCooldown;
     [SerializeField] public int attackDamage; // enemy deals discrete damage to the player like in Hollow Knight
 
+    [SerializeField] public float knockbackStrength; // bigger # = player takes more knockback when receiving an attack
+
     [Header("Gambling?")]
     [SerializeField][Range(0f, 1f)] public float probability;
 

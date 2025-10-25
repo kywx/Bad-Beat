@@ -9,7 +9,7 @@ public enum EnemyMovement
     Patrol, // enemy will walk back and forth
     Chase,  // enemy will follow the player
     Evasive, // enemy will avoid or sidestep when the player is near
-    Unique // code your own enemy-exclusive method for this
+    Unique // doesn't conform to above states.  code your own enemy-exclusive method for this
 }
 public abstract class EnemyMovementTemplate : MonoBehaviour
 {
@@ -17,6 +17,16 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
     [SerializeField] protected EnemyMovement _movementType; // lets you tweak what movement logic the enemy will follow
 
     [SerializeField] protected List<Transform> _patrolPoints;
+    protected int _patrolIndex;
+    protected Vector2 _targetDestination;
+
+    [SerializeField] protected float _idleTimer;
+    protected float _idleCountdown;
+
+    protected GameObject _player;
+
+    protected bool _grounded;
+
 
     #region Movement Stats
     protected float _groundSpeed;
@@ -35,6 +45,14 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
         _knockbackResistance = _enemyStats.knockbackResistance;
         _stoppingDistance = _enemyStats.stoppingDistance;
         _startChaseDistance = _enemyStats.startChaseDistance;
+
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _idleCountdown = _idleTimer;
+
+        if(_patrolPoints != null)
+        {
+            _targetDestination = _patrolPoints[0].position;
+        }
 
 
 
@@ -81,18 +99,26 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
     #region Run Movement
     protected virtual void RunIdle()
     {
-        //
+        _idleCountdown -= Time.deltaTime;
+
+        if(_idleCountdown <= 0)
+        {
+            _idleCountdown = _idleTimer;
+            _movementType = EnemyMovement.Patrol; // enemy will patrol by default
+        }
     }
 
-    protected virtual void RunPatrol()
+    protected virtual void RunPatrol() // can make more natural in the child
     {
-        //
+        
+        
     }
 
 
     protected virtual void RunChase()
     {
-        //
+       
+        
     }
 
     protected virtual void RunEvasion()
@@ -104,8 +130,24 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
     {
         //
     }
-    
+
 
     #endregion
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            _grounded = true;
+        }
+    }
+
+    protected virtual void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            _grounded = false;
+        }
+    }
 
 }
