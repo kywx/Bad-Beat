@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 
 public class SyncedRotation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private int _rotationsPerLoop;
     void Start()
     {
         
@@ -11,6 +12,7 @@ public class SyncedRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // takes one entire loop of a song for the rotation to be complete
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, Mathf.Lerp(0, 360*_rotationsPerLoop, Conductor.instance.loopPositionInAnalog));
     }
 }
