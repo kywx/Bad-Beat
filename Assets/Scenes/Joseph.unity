@@ -261,12 +261,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3184e071a0129a846a12ad5b2059dc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  songBpm: 75
+  songBpm: 150
   secPerBeat: 0
   songPosition: 0
   songPositionInBeats: 0
   dspSongTime: 0
   musicSource: {fileID: 0}
+  firstBeatOffset: 0
+  loopPositionInAnalog: 0
+  beatsPerLoop: 255
+  completedLoops: 0
+  loopPositionInBeats: 0
 --- !u!1 &104769732
 GameObject:
   m_ObjectHideFlags: 0

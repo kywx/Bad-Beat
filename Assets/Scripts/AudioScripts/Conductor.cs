@@ -16,6 +16,22 @@ public class Conductor : MonoBehaviour
 
     public float firstBeatOffset;
 
+    // position in the song between 0 and 1 (0%-100%)
+    public float loopPositionInAnalog;
+
+    // class instance
+    public static Conductor instance;
+
+    // for looping songs
+    public float beatsPerLoop;
+    public int completedLoops = 0;
+    public float loopPositionInBeats;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         musicSource = GetComponent<AudioSource>();
@@ -35,5 +51,13 @@ public class Conductor : MonoBehaviour
 
         // beats since song started
         songPositionInBeats = songPosition / secPerBeat;
+
+        if (songPositionInBeats >= (completedLoops + 1) * beatsPerLoop)
+        {
+            completedLoops++;
+        }
+        loopPositionInBeats = songPositionInBeats - completedLoops * beatsPerLoop;
+
+        loopPositionInAnalog = loopPositionInBeats / beatsPerLoop;
     }
 }
