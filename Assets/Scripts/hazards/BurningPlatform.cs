@@ -33,7 +33,6 @@ public class BurningPlatform : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collider)
     {
-        //consider finding a more elegant way to detect player
         target = collider.gameObject.GetComponent<PlayerHealth>();
 
         if (target != null)
