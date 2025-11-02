@@ -147,13 +147,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1141413471}
+  m_Children: []
   m_Father: {fileID: 594561240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -808, y: 487}
+  m_AnchoredPosition: {x: -750, y: 480}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &535235968
@@ -170,17 +169,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1640284236270119716, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
   playerStats: {fileID: 11400000, guid: 896690c19b1f2994d9d7b3e74e6f6327, type: 2}
-  healthBulbPrefab: {fileID: 8857819414994728405, guid: f3e675eefcd238a4c964ae449a01bc12, type: 3}
-  connectingBarPrefab: {fileID: 6026254027074117339, guid: 22ca04008c4e86a45876e98cd035cd78, type: 3}
-  bulbContainer: {fileID: 1141413471}
+  canvas: {fileID: 594561239}
+  healthBarContainer: {fileID: 874788838}
+  frameSprite: {fileID: 7630947860467931372, guid: d0d18325f226d6a4bae73a6694efddef, type: 3}
+  framePosition: {x: 100, y: 0}
+  anchorFrameToTopLeft: 1
   bulbSpacing: 80
-  startX: 100
-  useFixedBulbSize: 0
-  fixedBulbSize: {x: 40, y: 60}
-  connectorOffset: {x: 0, y: 0}
-  connectorSize: {x: 0, y: 0}
-  bulbLitSprite: {fileID: 8462980781304832860, guid: e63ec4418d88ae4438dca48df36b8969, type: 3}
-  bulbBrokenSprite: {fileID: -7689635685378265540, guid: 34f0fcacd0e0a2e43bc512d045ca3a04, type: 3}
+  bulbStartXOffset: 450
+  bulbYOffset: 180
+  bulbLitSprite: {fileID: -902086654454736923, guid: d47b422003c37dd4b9cc2e01659709e3, type: 3}
+  bulbBrokenSprite: {fileID: 6203021155144160854, guid: 7c316659e89896641a8464b77016082e, type: 3}
+  connectorSprite: {fileID: 21616415730870400, guid: cb84d96d966e09047b0fbbbfe1046a6f, type: 3}
+  connectorYOffset: 30
+  connectorXAdjust: 0
   explosionEffectPrefab: {fileID: 0}
   explosionSound: {fileID: 0}
   healSound: {fileID: 0}
@@ -279,6 +280,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 535235967}
+  - {fileID: 874788838}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -286,6 +288,41 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &874788837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 874788838}
+  m_Layer: 5
+  m_Name: HealthBarContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &874788838
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874788837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 594561240}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1023379901
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,41 +494,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1141413470
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1141413471}
-  m_Layer: 5
-  m_Name: BulbContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1141413471
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141413470}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 535235967}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
