@@ -1287,6 +1287,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 646552898}
     - target: {fileID: 1584322286571426345, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: FadeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1584322286571426345, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
       propertyPath: BlackoutPanel
       value: 
       objectReference: {fileID: 0}
