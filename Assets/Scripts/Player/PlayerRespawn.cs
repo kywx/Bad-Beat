@@ -7,6 +7,7 @@ public class PlayerRespawn : MonoBehaviour {
     private PlayerHealth HealthManager;
     public Image BlackImage;
     public float FadeDuration = 0.5f;
+    private PlayerPoisoner PoisonManager;
 
     private Vector2 spawn_point;
 
@@ -16,14 +17,20 @@ public class PlayerRespawn : MonoBehaviour {
 
     public void Awake(){
         HealthManager = this.GetComponent<PlayerHealth>();
+        PoisonManager = this.GetComponent<PlayerPoisoner>();
     }
 
     public void Respawn() {
+        this.transform.position = spawn_point;
         BlackImage.color = Color.black;
-        this.transform.position = spawn_point; 
-        if(HealthManager != null){
+        if (HealthManager != null)
+        {
             HealthManager.HealToMax();
             StartCoroutine(FadeCoroutine());
+        }
+        if (PoisonManager != null)
+        {
+            PoisonManager.CurePoison();
         }
     }
 
