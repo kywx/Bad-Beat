@@ -26,12 +26,12 @@ public class PlayerRespawn : MonoBehaviour {
         if (HealthManager != null)
         {
             HealthManager.HealToMax();
-            StartCoroutine(FadeCoroutine());
         }
         if (PoisonManager != null)
         {
             PoisonManager.CurePoison();
         }
+        StartCoroutine(FadeCoroutine());
     }
 
     private IEnumerator FadeCoroutine() {
