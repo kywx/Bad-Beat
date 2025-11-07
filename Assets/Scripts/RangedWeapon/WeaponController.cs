@@ -7,7 +7,8 @@ public class WeaponController : MonoBehaviour
     public List<WeaponDataSO> availableWeapons = new List<WeaponDataSO>();
     public Transform attackPoint;
     public SpriteRenderer handSpriteRenderer;
-    
+    public PlayerMovement playerMovement; // assign via Inspector or GetComponent
+
     // ===== cached component  =====
     private Transform cachedTransform;
     private Camera mainCamera;
@@ -58,6 +59,12 @@ public class WeaponController : MonoBehaviour
         
         // siwtch weapon input
         HandleWeaponSwitching();
+        // continuously update weapon image and position based on facing direction
+        if (currentWeapon != null)
+    {
+        UpdateHandVisual(availableWeapons[currentWeaponIndex]);
+
+    }
     }
     
     void Attack()
@@ -70,27 +77,15 @@ public class WeaponController : MonoBehaviour
         }
     }
     
-    Vector2 GetAttackDirection()
-    {
-        // user 2D mouse position to world position
-        mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        
-        // calculate direction vector
-        attackDirection.x = mouseWorldPos.x - attackPoint.position.x;
-        attackDirection.y = mouseWorldPos.y - attackPoint.position.y;
-        
-        // normalize direction
-        float magnitude = Mathf.Sqrt(attackDirection.x * attackDirection.x + 
-                                     attackDirection.y * attackDirection.y);
-        
-        if (magnitude > 0.0001f)
-        {
-            attackDirection.x /= magnitude;
-            attackDirection.y /= magnitude;
-        }
-        
-        return attackDirection;
-    }
+public Vector2 GetAttackDirection()
+{  bool isFacingRight = playerMovement.IsFacingRight;
+   float baseAngle = isFacingRight ? 8f : 172f; // 0° for right, 180° for left
+
+    float fireAngleRad = baseAngle * Mathf.Deg2Rad;
+    Vector2 direction = new Vector2(Mathf.Cos(fireAngleRad), Mathf.Sin(fireAngleRad));
+    return direction.normalized;
+
+}
     
     void HandleWeaponSwitching()
     {
@@ -143,7 +138,7 @@ public class WeaponController : MonoBehaviour
         {
             currentWeapon = weapon;
             currentWeapon.OnEquip();
-            UpdateHandVisual(weaponData);
+           
         }
     }
 
@@ -155,12 +150,22 @@ public class WeaponController : MonoBehaviour
             if (handSpriteRenderer == null) return;
 
                 handSpriteRenderer.sprite = weaponData.weaponIcon;
+                Transform handTransform = handSpriteRenderer.transform;
 
+                bool isFacingRight = playerMovement.IsFacingRight;
 
-                 Transform handTransform = handSpriteRenderer.transform;
-                 handTransform.localScale = new Vector3(0.005f, 0.005f, 0f);
+                // Example position offset values: adjust to suit your game visuals
+                Vector3 rightPosOffset = new Vector3(0.5f, 0f, 0f);
+                Vector3 leftPosOffset = new Vector3(-0.5f, 0f, 0f);
+
+                // Position the weapon relative to attackPoint
+                handTransform.position = attackPoint.position + (isFacingRight ? rightPosOffset : leftPosOffset);
                 
-                
+                // Flip the weapon sprite horizontally by adjusting scale.x
+                handTransform.localScale = new Vector3(isFacingRight ? 0.003f : -0.003f, 0.003f, 1f);
+                handSpriteRenderer.flipX = !isFacingRight;
+    
+
             // handSpriteRenderer could be at the attaackPoint position
         }
 
