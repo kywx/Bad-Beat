@@ -133,46 +133,28 @@ public abstract class ProjectileBase : MonoBehaviour
 
         // CompareTag
         // the tag of the collided componet object  must be the label
-        bool isPlayer = collision.CompareTag("Player");
-
-        //bool isEnemy = collision.CompareTag("Enemy");
-        /*
-        // if hit damageable target
-          // ===== damage enemy =====
-        if (collision.CompareTag("Enemy"))
-        {
-            // get Enemy componetnt
-            Enemy enemy = collision.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-                OnHit(collision);
-                
-            }
-            // if multiple enemy types, more checks can be added here
-            else
-            {
-                EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
-                if (enemyHealth != null)
-                {
-                    enemyHealth.TakeDamage(damage);
-                    OnHit(collision);
-                    
-                }
-            }
+      
+       //  ===== damage enemy =====
+        if (collision.gameObject.CompareTag("Enemy")) {
+        EnemyHealthTemplate enemyHealth = collision.gameObject.GetComponent<EnemyHealthTemplate>();
+        if (enemyHealth != null) {
+            enemyHealth.TakeDamageSimple(damage);
+            OnHit(collision);
+            hitSomething = true; 
         }
-        */
-        
+        // Destroy this projectile after hitting
+        Destroy(gameObject);
+    }
+
         // ===== damage Player =====
 
-       if (isPlayer)
+       if (collision.CompareTag("Player"))
     {
         Debug.Log("Hit player!");
         PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
         if (playerHealth != null)
         {   
             playerHealth.Damage(damage);
-            Debug.Log(damage + " damage dealt to player.");
             OnHit(collision);
             hitSomething = true; 
         }
