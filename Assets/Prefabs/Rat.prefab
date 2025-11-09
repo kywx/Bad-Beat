@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6996417723644077140}
   - component: {fileID: 4069871333463640040}
   - component: {fileID: 5340951322370481391}
+  - component: {fileID: 7831969099169748146}
+  - component: {fileID: 4918127643256363355}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -137,6 +139,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7831969099169748146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740093351446693416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e6c30ce5eadce4b875b3fe474b3dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage_value: 1
+--- !u!114 &4918127643256363355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740093351446693416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3228bcd98fc8a44a1e8cdd9eb37124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyStats: {fileID: 11400000, guid: 01fb1eac54f1586438742e3bd5bcab81, type: 2}
 --- !u!1 &6692422952632097905
 GameObject:
   m_ObjectHideFlags: 0
