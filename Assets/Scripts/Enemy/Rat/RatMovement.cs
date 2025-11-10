@@ -11,18 +11,15 @@ public class RatMovement : EnemyMovementTemplate
     protected override void RunPatrol()
     {
         bool hit = Physics2D.Raycast(ray.position, Vector2.down, 1f, LayerMask.GetMask("Ground"));
-        //Debug.DrawRay(ray.position, Vector2.down * 1f, Color.red);
+        Debug.DrawRay(ray.position, Vector2.down * 1f, Color.red);
         if (hit == true) {
             if (facingRight == true) {
-                //Debug.Log("Going right");
                 rb.linearVelocity = new Vector2(_groundSpeed, rb.linearVelocityY);
             } else {
-                //Debug.Log("Going left");
                 rb.linearVelocity = new Vector2(-_groundSpeed, rb.linearVelocityY);
 
             }
         } else {
-            //Debug.Log("Turn");
             facingRight = !facingRight;
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
@@ -54,7 +51,6 @@ public class RatMovement : EnemyMovementTemplate
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             _grounded = true;
-            //Debug.Log("Grounded");
 
         }
     }
@@ -64,10 +60,19 @@ public class RatMovement : EnemyMovementTemplate
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             _grounded = false;
-            //Debug.Log("Falling");
 
         }
     }
+
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            facingRight = !facingRight;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+    }
+
 
 
 }
