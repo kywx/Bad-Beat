@@ -171,17 +171,28 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: 896690c19b1f2994d9d7b3e74e6f6327, type: 2}
   canvas: {fileID: 594561239}
   healthBarContainer: {fileID: 874788838}
-  frameSprite: {fileID: 7630947860467931372, guid: d0d18325f226d6a4bae73a6694efddef, type: 3}
-  framePosition: {x: 100, y: 0}
+  frameSprite: {fileID: 3737897332693287829, guid: 18e9591b1819f8a45a4a2fa64c5b56bf, type: 3}
+  framePosition: {x: -910, y: 490}
+  frameScale: 4
   anchorFrameToTopLeft: 1
+  bulbLitSprite: {fileID: 8462980781304832860, guid: d47b422003c37dd4b9cc2e01659709e3, type: 3}
+  bulbBrokenSprite: {fileID: 21300000, guid: 7c316659e89896641a8464b77016082e, type: 3}
+  bulbStartXOffset: 312
+  bulbYOffset: 82
   bulbSpacing: 80
-  bulbStartXOffset: 450
-  bulbYOffset: 180
-  bulbLitSprite: {fileID: -902086654454736923, guid: d47b422003c37dd4b9cc2e01659709e3, type: 3}
-  bulbBrokenSprite: {fileID: 6203021155144160854, guid: 7c316659e89896641a8464b77016082e, type: 3}
+  bulbScale: 0.4
   connectorSprite: {fileID: 21616415730870400, guid: cb84d96d966e09047b0fbbbfe1046a6f, type: 3}
-  connectorYOffset: 30
+  connectorYOffset: 66
   connectorXAdjust: 0
+  connectorScale: 0.4
+  liveUpdateEnabled: 1
+  standaloneTestMode: 1
+  standaloneMaxHealth: 5
+  standaloneCurrentHealth: 5
+  testDamage: 0
+  testHeal: 0
+  testAddMaxHealth: 0
+  testHealToFull: 0
   explosionEffectPrefab: {fileID: 0}
   explosionSound: {fileID: 0}
   healSound: {fileID: 0}
