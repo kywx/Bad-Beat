@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
-/// Steampunk UI Manager - Real-time adjustable health bar system
+/// Steampunk UI Manager - Real-time adjustable health bar system with shard explosions
 /// </summary>
 public class SteampunkUIManager : MonoBehaviour
 {
@@ -57,6 +57,10 @@ public class SteampunkUIManager : MonoBehaviour
     public GameObject explosionEffectPrefab;
     public AudioClip explosionSound;
     public AudioClip healSound;
+
+    [Header("Shard Explosion System")]
+    public BulbShardExplosion shardExplosion;
+    public bool enableShardExplosion = true;
 
     // Cached values for detecting changes
     private Vector2 _lastFramePosition;
@@ -624,6 +628,13 @@ public class SteampunkUIManager : MonoBehaviour
 
         if (bulbImg.sprite != bulbLitSprite) yield break;
 
+        // Spawn shard explosion (includes its own delay)
+        if (enableShardExplosion && shardExplosion != null)
+        {
+            shardExplosion.SpawnShardExplosion(bulbObj.transform.position, healthBarContainer);
+        }
+
+        // Start shake and sound/particle effects simultaneously
         StartCoroutine(ShakeBulb(bulbObj, bulbIndex));
 
         if (explosionEffectPrefab != null)
