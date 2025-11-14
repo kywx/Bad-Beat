@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 535235967}
   - component: {fileID: 535235968}
+  - component: {fileID: 535235969}
   m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
@@ -196,6 +197,31 @@ MonoBehaviour:
   explosionEffectPrefab: {fileID: 0}
   explosionSound: {fileID: 0}
   healSound: {fileID: 0}
+  shardExplosion: {fileID: 535235969}
+  enableShardExplosion: 1
+--- !u!114 &535235969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535235966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38307caef3ea7a64ab9b1a3ad93d1534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shardSprite: {fileID: -7420725189671274630, guid: b1db77395ec53b5468e478d6ffb11f22, type: 3}
+  shardCount: 5
+  shardSpawnDelay: 0.3
+  explosionForceRange: {x: 50, y: 150}
+  minFadeStartTime: 0.3
+  maxFadeStartTime: 0.8
+  fadeDuration: 0.4
+  gravity: 300
+  rotationSpeedRange: {x: -360, y: 360}
+  shardSizeRange: {x: 10, y: 25}
+  shardTint: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &594561236
 GameObject:
   m_ObjectHideFlags: 0
