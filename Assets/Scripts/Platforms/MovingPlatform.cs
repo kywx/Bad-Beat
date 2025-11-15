@@ -56,7 +56,9 @@ public class MovingPlatformScript : MonoBehaviour
     }
 
     private void LateUpdate() {
-        player.transform.rotation = zeroRotation;
+        if (player) {
+            player.transform.rotation = zeroRotation;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -69,6 +71,7 @@ public class MovingPlatformScript : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
+            player = null;
             collision.transform.SetParent(null);
         }
     }
