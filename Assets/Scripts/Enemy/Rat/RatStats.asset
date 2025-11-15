@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0ee7ea70214f1f4faa7546b49366ff6, type: 3}
   m_Name: RatStats
   m_EditorClassIdentifier: 
-  hp: 2
+  hp: 3
   armor: 0
   resistanceModifier: 0
   vulnerabilityModifier: 0
@@ -26,6 +26,6 @@ MonoBehaviour:
   minAttackRange: 0
   maxAttackRange: 0
   attackCooldown: 0
-  attackDamage: 0
-  knockbackStrength: 0
+  attackDamage: 1
+  knockbackStrength: 2
   probability: 0

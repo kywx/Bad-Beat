@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 314206917126398085}
   - component: {fileID: 6996417723644077140}
   - component: {fileID: 4069871333463640040}
-  - component: {fileID: 5340951322370481391}
-  - component: {fileID: 7831969099169748146}
   - component: {fileID: 4918127643256363355}
+  - component: {fileID: 7219459229036214652}
   - component: {fileID: 7900782117320162069}
+  - component: {fileID: 5340951322370481391}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -114,6 +114,61 @@ MonoBehaviour:
   _idleTimer: 2
   rb: {fileID: 5340951322370481391}
   ray: {fileID: 144597321902389024}
+  stunTimer: 0.3
+--- !u!114 &4918127643256363355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740093351446693416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3228bcd98fc8a44a1e8cdd9eb37124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyStats: {fileID: 11400000, guid: 01fb1eac54f1586438742e3bd5bcab81, type: 2}
+--- !u!114 &7219459229036214652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740093351446693416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3e5b95cbfe61e43b12034e276ac71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyStats: {fileID: 11400000, guid: 01fb1eac54f1586438742e3bd5bcab81, type: 2}
+  _attackStart: {fileID: 0}
+  _attackEnd: {fileID: 0}
+  _attackSize: 0
+  _attackLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!95 &7900782117320162069
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740093351446693416}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: db097d205d388e947ae4c52168e6b9cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &5340951322370481391
 Rigidbody2D:
   serializedVersion: 5
@@ -141,54 +196,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7831969099169748146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740093351446693416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e6c30ce5eadce4b875b3fe474b3dd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage_value: 1
---- !u!114 &4918127643256363355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740093351446693416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3228bcd98fc8a44a1e8cdd9eb37124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: 01fb1eac54f1586438742e3bd5bcab81, type: 2}
---- !u!95 &7900782117320162069
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740093351446693416}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: db097d205d388e947ae4c52168e6b9cb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6692422952632097905
 GameObject:
   m_ObjectHideFlags: 0

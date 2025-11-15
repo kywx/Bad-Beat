@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR;
 
 [System.Serializable]
     public enum AttackState
@@ -52,11 +53,12 @@ public abstract class EnemyAttackTemplate : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
+
+        if (health != null)
         {
-            // implement when we have scripts managing the player's health
-            //  collision.gameObject.GetComponent<PLAYERLIFE>.TAKEDAMAGE(_attackDamage);
             //  collision.gameObject.GetComponent<PLAYER____>.TAKEKNOCKBACK(_attackDamage);
+            health.Damage(_attackDamage);
 
             Debug.Log("Collision damage");
         }

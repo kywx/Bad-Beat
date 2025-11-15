@@ -1,4 +1,6 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class RatMovement : EnemyMovementTemplate
@@ -7,29 +9,32 @@ public class RatMovement : EnemyMovementTemplate
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform ray;
     bool facingRight = true;
-    
+    [SerializeField] private float stunTimer;
+    private float stunCounter;
+
     protected override void RunPatrol()
     {
-        bool hit = Physics2D.Raycast(ray.position, Vector2.down, 1f, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(ray.position, Vector2.down * 1f, Color.red);
-        if (hit == true) {
-            if (facingRight == true) {
-                rb.linearVelocity = new Vector2(_groundSpeed, rb.linearVelocityY);
-            } else {
-                rb.linearVelocity = new Vector2(-_groundSpeed, rb.linearVelocityY);
+        if (stunCounter <= 0)
+        {
+            bool hit = Physics2D.Raycast(ray.position, Vector2.down, .5f, LayerMask.GetMask("Ground"));
+            Debug.DrawRay(ray.position, Vector2.down * 1f, Color.red);
+            if (hit == true) {
+                if (facingRight == true) {
+                    rb.linearVelocity = new Vector2(_groundSpeed, rb.linearVelocityY);
+                } else {
+                    rb.linearVelocity = new Vector2(-_groundSpeed, rb.linearVelocityY);
 
+                }
+            } else {
+                facingRight = !facingRight;
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             }
-        } else {
-            facingRight = !facingRight;
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        } else
+        {
+            stunCounter -= Time.deltaTime;
+
         }
 
-    }
-
-    protected override void RunIdle()
-    {
-        base.RunIdle();
-        rb.linearVelocity = new Vector2(0, rb.linearVelocityY);
     }
 
 
@@ -39,7 +44,8 @@ public class RatMovement : EnemyMovementTemplate
         {
             _movementType = EnemyMovement.Patrol;
         }
-        else {
+        else 
+        {
             _movementType = EnemyMovement.Idle;
 
         }
@@ -73,6 +79,21 @@ public class RatMovement : EnemyMovementTemplate
         }
     }
 
+    public override void Knockback(Vector2 attackerPosition, float knockbackStrength)
+    {
+        rb.linearVelocity = Vector2.zero;
+        int dir;
+        if (attackerPosition.x < this.transform.position.x) {
+            dir = 1;
+        } else if (attackerPosition.x > this.transform.position.x) {
+            dir = -1;
+        } else {
+            dir = 0;
+        }
+        rb.linearVelocity = new Vector2(dir * knockbackStrength, knockbackStrength);
+        stunCounter = stunTimer;
 
+
+    }
 
 }

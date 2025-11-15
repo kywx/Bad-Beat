@@ -38,10 +38,13 @@ public class PlayerAttack : MonoBehaviour
         foreach (Collider2D enemyGameObject in enemy){
             Debug.Log("hit!");
             //Destroy(enemyGameObject.gameObject);
-            EnemyHealthTemplate attackedEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyHealthTemplate>();
-            if (attackedEnemy != null)
+            EnemyHealthTemplate attackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyHealthTemplate>();
+            EnemyMovementTemplate knockbackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyMovementTemplate>();
+
+            if (attackEnemy != null && knockbackEnemy != null)
             {
-                attackedEnemy.TakeDamageSimple(1);
+                attackEnemy.TakeDamageSimple(stats.AttackDamage);
+                knockbackEnemy.Knockback(this.transform.position, stats.KnockbackForce);
             } else
             {
                 print("EnemyHealthTemplate not found");

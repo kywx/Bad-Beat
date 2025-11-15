@@ -149,5 +149,9 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
             _grounded = false;
         }
     }
+    public virtual void Knockback(Vector2 attackerPosition, float knockbackStrength)
+    {
+        //
+    }
 
 }

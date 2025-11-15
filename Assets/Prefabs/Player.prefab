@@ -254,7 +254,7 @@ MonoBehaviour:
     m_Bits: 128
   playerRB: {fileID: 8303579779211601857}
   pogoForce: 10000
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: 896690c19b1f2994d9d7b3e74e6f6327, type: 2}
 --- !u!1 &4451565006227233711
 GameObject:
   m_ObjectHideFlags: 0
