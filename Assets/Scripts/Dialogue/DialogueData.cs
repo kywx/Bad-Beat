@@ -16,7 +16,6 @@ public class DialogueData : MonoBehaviour, IInteractable
         }
 
         DialogueManager.Instance.StartDialogue(this);
-        Debug.Log("Finished?");
     }
 
     [SerializeField] private Sprite OtherSprite = null;
