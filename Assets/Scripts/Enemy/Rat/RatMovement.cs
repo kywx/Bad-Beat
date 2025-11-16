@@ -11,6 +11,12 @@ public class RatMovement : EnemyMovementTemplate
     bool facingRight = true;
     [SerializeField] private float stunTimer;
     private float stunCounter;
+    private RatHealth health;
+    protected override void Awake()
+    {
+        base.Awake();
+        health = GetComponent<RatHealth>();
+    }
 
     protected override void RunPatrol()
     {
@@ -40,15 +46,21 @@ public class RatMovement : EnemyMovementTemplate
 
     protected override void DetermineMovement()
     {
-        if (_grounded == true)
+        if (health.IsAlive == false)
+        {
+            _movementType = EnemyMovement.Unique;
+            rb.linearVelocity = Vector2.zero;
+        }
+        else if (_grounded == true)
         {
             _movementType = EnemyMovement.Patrol;
         }
-        else 
+        else if (_grounded == false)
         {
             _movementType = EnemyMovement.Idle;
 
-        }
+        } 
+
 
 
     }
