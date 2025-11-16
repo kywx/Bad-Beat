@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping;
     public bool playingDialogue;
 
+    private System.Action onDialogueFinishedCallback;
+
 
     private void Awake()
     {
@@ -54,12 +56,13 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(DialogueData dialogueData)
+    public void StartDialogue(DialogueData dialogueData, System.Action onDialogueFinishedCallback = null)
     {
+        if (dialogueData == null) return;
+        this.onDialogueFinishedCallback = onDialogueFinishedCallback;
         if (playingDialogue) return;
         //GameManager.Instance.isPaused = true; // PAUSE HERE
         List<DialogueData.DialogueLine> lines = dialogueData.getLines();
-        int speakerCount = dialogueData.getSpeakerCount();
         foreach (DialogueData.DialogueLine line in lines)
         {
             dialogueLines.Enqueue(line);
@@ -112,6 +115,9 @@ public class DialogueManager : MonoBehaviour
         //GameManager.Instance.isPaused = false; // UNPAUSE HERE
         dialoguePanel.SetActive(false);
         playingDialogue = false;
+
+        onDialogueFinishedCallback?.Invoke();
+        onDialogueFinishedCallback = null;
     }
 
 }

@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 801250835}
   - component: {fileID: 801250834}
   - component: {fileID: 801250838}
+  - component: {fileID: 801250839}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -681,8 +682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b658a9107b95643ba9dfd75f279597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OtherSprite: {fileID: 0}
-  speakerCount: 2
   speakerLines:
   - speakerName: Player
     lineText: hi
@@ -692,6 +691,18 @@ MonoBehaviour:
     lineText: ?????????????????
   - speakerName: Player
     lineText: ok
+--- !u!114 &801250839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 801250833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d80eb357f3344499019a33fc0fbdd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &975762688
 GameObject:
   m_ObjectHideFlags: 0
