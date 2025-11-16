@@ -39,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
         _isFacingRight = true;
         _rb = GetComponent<Rigidbody2D>();
     }
+    public bool IsFacingRight
+    {
+        get { return _isFacingRight; }
+    }
 
     private void Update()
     {
@@ -84,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void TurnCheck(Vector2 moveInput)
     {
-        if (_isFacingRight)
+        if (_isFacingRight && moveInput.x < 0)
         {
             Turn(false);
         } else if (!_isFacingRight && moveInput.x > 0)
