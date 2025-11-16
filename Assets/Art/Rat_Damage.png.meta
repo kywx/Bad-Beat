@@ -1,34 +1,28 @@
 fileFormatVersion: 2
-guid: 02d91a1eabfbbc6439f391ffd7018a7b
+guid: 6138213494185db4382bd0d633c40865
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2651742494583919954
-    second: Rat_Death_0
+      213: -7144249715461933899
+    second: Rat_Damage_0
   - first:
-      213: -8928153041836791798
-    second: Rat_Death_1
+      213: 4592944442121280386
+    second: Rat_Damage_1
   - first:
-      213: 3299565081895552541
-    second: Rat_Death_2
+      213: 3305107334176948691
+    second: Rat_Damage_2
   - first:
-      213: -1057901355495070263
-    second: Rat_Death_3
+      213: -4495696305398592433
+    second: Rat_Damage_3
   - first:
-      213: 1484303934622603811
-    second: Rat_Death_4
+      213: 2200157026511885979
+    second: Rat_Damage_4
   - first:
-      213: -4668003025117733435
-    second: Rat_Death_5
+      213: -8641544559825124623
+    second: Rat_Damage_5
   - first:
-      213: -2492160798946284148
-    second: Rat_Death_6
-  - first:
-      213: 8154021148260308267
-    second: Rat_Death_7
-  - first:
-      213: -3084273248927581037
-    second: Rat_Death_8
+      213: -5322970244760547547
+    second: Rat_Damage_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Rat_Death_0
+      name: Rat_Damage_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 14
         width: 70
-        height: 34
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eaa648e204e133bd0800000000000000
-      internalID: -2651742494583919954
+      spriteID: 5b4b4335cb68adc90800000000000000
+      internalID: -7144249715461933899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rat_Death_1
+      name: Rat_Damage_1
       rect:
         serializedVersion: 2
-        x: 70
+        x: 74
         y: 14
         width: 70
-        height: 34
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a08aef0ac14d81480800000000000000
-      internalID: -8928153041836791798
+      spriteID: 28b5eb9b2aa6dbf30800000000000000
+      internalID: 4592944442121280386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rat_Death_2
+      name: Rat_Damage_2
       rect:
         serializedVersion: 2
-        x: 140
+        x: 144
         y: 14
-        width: 70
-        height: 34
+        width: 69
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d16caabc5f86acd20800000000000000
-      internalID: 3299565081895552541
+      spriteID: 3d1c726fb991edd20800000000000000
+      internalID: 3305107334176948691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rat_Death_3
+      name: Rat_Damage_3
       rect:
         serializedVersion: 2
-        x: 210
+        x: 213
         y: 14
-        width: 70
-        height: 34
+        width: 66
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c5ef4a72549151f0800000000000000
-      internalID: -1057901355495070263
+      spriteID: f4c4eaa87041c91c0800000000000000
+      internalID: -4495696305398592433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rat_Death_4
+      name: Rat_Damage_4
       rect:
         serializedVersion: 2
-        x: 280
+        x: 279
         y: 14
         width: 68
-        height: 34
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,42 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32a15e9709e499410800000000000000
-      internalID: 1484303934622603811
+      spriteID: b96125f9827888e10800000000000000
+      internalID: 2200157026511885979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rat_Death_5
+      name: Rat_Damage_5
       rect:
         serializedVersion: 2
-        x: 350
-        y: 15
-        width: 65
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5cd98651bfbe73fb0800000000000000
-      internalID: -4668003025117733435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rat_Death_6
-      rect:
-        serializedVersion: 2
-        x: 419
+        x: 347
         y: 14
-        width: 65
-        height: 32
+        width: 70
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,52 +243,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8d27a715f01a6dd0800000000000000
-      internalID: -2492160798946284148
+      spriteID: 1f20ae8f101131880800000000000000
+      internalID: -8641544559825124623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rat_Death_7
+      name: Rat_Damage_6
       rect:
         serializedVersion: 2
-        x: 490
+        x: 417
         y: 14
-        width: 62
-        height: 31
+        width: 70
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b2514115807e82170800000000000000
-      internalID: 8154021148260308267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rat_Death_8
-      rect:
-        serializedVersion: 2
-        x: 562
-        y: 13
-        width: 62
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 39c7e6f32d57235d0800000000000000
-      internalID: -3084273248927581037
+      spriteID: 84932ae483d07484c8f201f94d4e8c63
+      internalID: -5322970244760547547
       vertices: []
       indices: 
       edges: []
@@ -325,7 +275,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: de359f20d91d90841992e6f20165fec8
+    spriteID: 428df86c695b51f48bec3d81e488d883
     internalID: 0
     vertices: []
     indices: 
@@ -335,15 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Rat_Death_0: -2651742494583919954
-      Rat_Death_1: -8928153041836791798
-      Rat_Death_2: 3299565081895552541
-      Rat_Death_3: -1057901355495070263
-      Rat_Death_4: 1484303934622603811
-      Rat_Death_5: -4668003025117733435
-      Rat_Death_6: -2492160798946284148
-      Rat_Death_7: 8154021148260308267
-      Rat_Death_8: -3084273248927581037
+      Rat_Damage_0: -7144249715461933899
+      Rat_Damage_1: 4592944442121280386
+      Rat_Damage_2: 3305107334176948691
+      Rat_Damage_3: -4495696305398592433
+      Rat_Damage_4: 2200157026511885979
+      Rat_Damage_5: -8641544559825124623
+      Rat_Damage_6: -5322970244760547547
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

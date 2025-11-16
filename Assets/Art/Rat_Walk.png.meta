@@ -128,9 +128,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 14
+        y: 12
         width: 70
-        height: 37
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,9 +150,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 70
-        y: 14
-        width: 71
-        height: 36
+        y: 12
+        width: 70
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,9 +172,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 140
-        y: 14
-        width: 71
-        height: 36
+        y: 12
+        width: 70
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,9 +194,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 210
-        y: 13
-        width: 71
-        height: 37
+        y: 12
+        width: 70
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 280
-        y: 11
-        width: 70
+        y: 12
+        width: 69
         height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -238,9 +238,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 349
-        y: 12
-        width: 69
-        height: 37
+        y: 9
+        width: 68
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,9 +260,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 417
-        y: 12
-        width: 71
-        height: 36
+        y: 9
+        width: 70
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,9 +282,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 487
-        y: 8
-        width: 69
-        height: 40
+        y: 9
+        width: 68
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -306,7 +306,7 @@ TextureImporter:
         x: 555
         y: 9
         width: 69
-        height: 38
+        height: 41
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -20,22 +20,10 @@ public class RatHealth : EnemyHealthTemplate
         if (_hp <= 0 && IsAlive) 
         { 
             IsAlive = false;
-            Die(); 
-        } 
-    }
+            //Animation condition IsAlive == false, will start the fadeTimer in fadeOut script
+            //Destroy(gameObject) will be called when fadeTimer == 0. 
 
-    public override void Die()
-    {
-        print("Disbling colliders and rigidbody");
-        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-        foreach (Collider2D collider in colliders)
-        {
-            collider.enabled = false;
         }
-        rb.bodyType = RigidbodyType2D.Kinematic;
-
-        //Destroy(gameObject)
-        //Called when fadeTimer == 0 in fadeout script.
     }
 
     public bool IsAlive{

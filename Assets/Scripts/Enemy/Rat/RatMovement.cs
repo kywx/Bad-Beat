@@ -12,33 +12,26 @@ public class RatMovement : EnemyMovementTemplate
     [SerializeField] private float stunTimer;
     private float stunCounter;
     private RatHealth health;
+    private Animator animator;
     protected override void Awake()
     {
         base.Awake();
         health = GetComponent<RatHealth>();
+        animator = GetComponent<Animator>();
     }
 
     protected override void RunPatrol()
-    {
-        if (stunCounter <= 0)
-        {
-            bool hit = Physics2D.Raycast(ray.position, Vector2.down, .5f, LayerMask.GetMask("Ground"));
-            Debug.DrawRay(ray.position, Vector2.down * 1f, Color.red);
-            if (hit == true) {
-                if (facingRight == true) {
-                    rb.linearVelocity = new Vector2(_groundSpeed, rb.linearVelocityY);
-                } else {
-                    rb.linearVelocity = new Vector2(-_groundSpeed, rb.linearVelocityY);
-
-                }
+    {        
+        bool hit = Physics2D.Raycast(ray.position, Vector2.down, .5f, LayerMask.GetMask("Ground"));
+        Debug.DrawRay(ray.position, Vector2.down * .5f, Color.red);
+        if (hit == true) {
+            if (facingRight == true) {
+                rb.linearVelocity = new Vector2(_groundSpeed, rb.linearVelocityY);
             } else {
-                facingRight = !facingRight;
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                rb.linearVelocity = new Vector2(-_groundSpeed, rb.linearVelocityY);
             }
-        } else
-        {
-            stunCounter -= Time.deltaTime;
-
+        } else {
+            flip();
         }
 
     }
@@ -46,10 +39,25 @@ public class RatMovement : EnemyMovementTemplate
 
     protected override void DetermineMovement()
     {
-        if (health.IsAlive == false)
+        if (StunCounter > 0)
         {
+            StunCounter -= Time.deltaTime;
             _movementType = EnemyMovement.Unique;
-            rb.linearVelocity = Vector2.zero;
+        } 
+        else if (health.IsAlive == false)
+        {
+            if (_grounded == true)
+            {
+                print("Disabling colliders and rigidbody");
+                Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+                foreach (Collider2D collider in colliders)
+                {
+                    collider.enabled = false;
+                }
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.linearVelocity = Vector2.zero;
+            }
+            _movementType = EnemyMovement.Unique;
         }
         else if (_grounded == true)
         {
@@ -103,9 +111,26 @@ public class RatMovement : EnemyMovementTemplate
             dir = 0;
         }
         rb.linearVelocity = new Vector2(dir * knockbackStrength, knockbackStrength);
-        stunCounter = stunTimer;
+        StunCounter = stunTimer;
 
 
+    }
+    public float StunCounter
+    {
+        get
+        {
+            return stunCounter;
+        }
+        set
+        {
+            stunCounter = value;
+            animator.SetFloat("stunCounter", value);
+        }
+    }
+    protected void flip()
+    {
+        facingRight = !facingRight;
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
 }

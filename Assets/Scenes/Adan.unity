@@ -719,7 +719,8 @@ PrefabInstance:
       propertyPath: '_patrolPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1847728908}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2454590775936672152, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
