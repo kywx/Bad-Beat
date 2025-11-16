@@ -171,10 +171,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rat (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 4069871333463640040, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
-      propertyPath: '_patrolPoints.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1847728908}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -650,14 +646,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rat
       objectReference: {fileID: 0}
-    - target: {fileID: 4069871333463640040, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
-      propertyPath: stunTimer
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4069871333463640040, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
-      propertyPath: '_patrolPoints.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1847728908}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -715,12 +703,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rat (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4069871333463640040, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
-      propertyPath: '_patrolPoints.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1847728908}
-    m_RemovedComponents:
-    - {fileID: 2454590775936672152, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1111,11 +1094,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
---- !u!4 &1847728908 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2913672662343595291, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
-  m_PrefabInstance: {fileID: 1770697186}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1924592934
 GameObject:
   m_ObjectHideFlags: 0

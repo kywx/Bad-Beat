@@ -4,7 +4,7 @@ public class RatHealth : EnemyHealthTemplate
 {
     private Rigidbody2D rb;
     private bool isAlive = true;
-    Animator animator;
+    private Animator animator;
 
     protected override void Awake()
     {

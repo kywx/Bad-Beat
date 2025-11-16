@@ -49,7 +49,7 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         _idleCountdown = _idleTimer;
 
-        if(_patrolPoints != null)
+        if(_patrolPoints != null && _patrolPoints.Count != 0)
         {
             _targetDestination = _patrolPoints[0].position;
         }

@@ -18,7 +18,7 @@ MonoBehaviour:
   vulnerabilityModifier: 0
   weakness: 0
   strength: 0
-  groundSpeed: 3
+  groundSpeed: 2
   airSpeed: 0
   knockbackResistance: 0
   stoppingDistance: 0

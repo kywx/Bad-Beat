@@ -8,20 +8,40 @@ public class RatMovement : EnemyMovementTemplate
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform ray;
-    bool facingRight = true;
     [SerializeField] private float stunTimer;
+    [SerializeField] private float attackTimer;
+    [SerializeField] private float jumpForceX;
+    [SerializeField] private float jumpForceY;
+
     private float stunCounter;
+    private float attackCounter;
+    private bool facingRight = true;
+
     private RatHealth health;
     private Animator animator;
+    private ObstacleCheck obstacleCheck;
+    private PlayerDetection playerDetection;
+
+
+
+
     protected override void Awake()
     {
         base.Awake();
         health = GetComponent<RatHealth>();
         animator = GetComponent<Animator>();
+        obstacleCheck = GetComponentInChildren<ObstacleCheck>();
+        playerDetection = GetComponentInChildren<PlayerDetection>();
+    }
+
+    protected override void RunIdle()
+    {
+        //Do nothing 
     }
 
     protected override void RunPatrol()
     {        
+
         bool hit = Physics2D.Raycast(ray.position, Vector2.down, .5f, LayerMask.GetMask("Ground"));
         Debug.DrawRay(ray.position, Vector2.down * .5f, Color.red);
         if (hit == true) {
@@ -31,7 +51,7 @@ public class RatMovement : EnemyMovementTemplate
                 rb.linearVelocity = new Vector2(-_groundSpeed, rb.linearVelocityY);
             }
         } else {
-            flip();
+            Flip();
         }
 
     }
@@ -39,11 +59,21 @@ public class RatMovement : EnemyMovementTemplate
 
     protected override void DetermineMovement()
     {
+        if (obstacleCheck.obstacleDetected == true)
+        {
+            Flip();
+        }
+
         if (StunCounter > 0)
         {
             StunCounter -= Time.deltaTime;
-            _movementType = EnemyMovement.Unique;
-        } 
+            _movementType = EnemyMovement.Idle;
+        }
+        else if (AttackCounter > 0)
+        {
+            AttackCounter -= Time.deltaTime;
+            _movementType = EnemyMovement.Idle;
+        }
         else if (health.IsAlive == false)
         {
             if (_grounded == true)
@@ -57,17 +87,22 @@ public class RatMovement : EnemyMovementTemplate
                 rb.bodyType = RigidbodyType2D.Kinematic;
                 rb.linearVelocity = Vector2.zero;
             }
-            _movementType = EnemyMovement.Unique;
-        }
-        else if (_grounded == true)
-        {
-            _movementType = EnemyMovement.Patrol;
+            _movementType = EnemyMovement.Idle;
         }
         else if (_grounded == false)
         {
             _movementType = EnemyMovement.Idle;
 
-        } 
+        }
+        else if (playerDetection.playerDetected == true)
+        {
+            JumpTo(playerDetection.playerPosition);
+        }
+        else
+        {
+            _movementType = EnemyMovement.Patrol;
+        }
+
 
 
 
@@ -87,15 +122,6 @@ public class RatMovement : EnemyMovementTemplate
         {
             _grounded = false;
 
-        }
-    }
-
-    protected void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") || collision.gameObject.layer == LayerMask.NameToLayer("Enemies"))
-        {
-            facingRight = !facingRight;
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
     }
 
@@ -127,10 +153,38 @@ public class RatMovement : EnemyMovementTemplate
             animator.SetFloat("stunCounter", value);
         }
     }
-    protected void flip()
+    protected void Flip()
     {
         facingRight = !facingRight;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
+    protected void JumpTo(Vector2 position)
+    {
+        rb.linearVelocity = Vector2.zero;
+        int dir;
+        if (position.x < this.transform.position.x)
+        {
+            dir = -1;
+        }
+        else 
+        {
+            dir = 1;
+        }
+        rb.linearVelocity = new Vector2(dir * jumpForceX, jumpForceY);
+        AttackCounter = attackTimer;
 
+
+    }
+    public float AttackCounter
+    {
+        get
+        {
+            return attackCounter;
+        }
+        set
+        {
+            attackCounter = value;
+            animator.SetFloat("attackCounter", value);
+        }
+    }
 }

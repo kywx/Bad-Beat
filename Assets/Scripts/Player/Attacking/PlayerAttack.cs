@@ -36,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
         }
 
         foreach (Collider2D enemyGameObject in enemy){
-            Debug.Log("hit!");
+            //Debug.Log("hit!");
             //Destroy(enemyGameObject.gameObject);
             EnemyHealthTemplate attackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyHealthTemplate>();
             EnemyMovementTemplate knockbackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyMovementTemplate>();
