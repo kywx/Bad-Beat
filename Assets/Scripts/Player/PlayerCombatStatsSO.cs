@@ -5,5 +5,6 @@ public class PlayerCombatStatsSO : ScriptableObject{
 
     public int MaxHealth = 3;
     public int AttackDamage = 1;
+    public int KnockbackForce = 2;
     
 }
