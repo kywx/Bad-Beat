@@ -129,9 +129,9 @@ public class RatMovement : EnemyMovementTemplate
     {
         rb.linearVelocity = Vector2.zero;
         int dir;
-        if (attackerPosition.x < this.transform.position.x) {
+        if (attackerPosition.x > this.transform.position.x) {
             dir = 1;
-        } else if (attackerPosition.x > this.transform.position.x) {
+        } else if (attackerPosition.x < this.transform.position.x) {
             dir = -1;
         } else {
             dir = 0;
