@@ -79,19 +79,16 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.linearVelocity = new Vector2(Mathf.Sign(_rb.linearVelocity.x) * maxSpeed, _rb.linearVelocity.y);
         }
-        if (moveInput != Vector2.zero)
-        {
-            TurnCheck(moveInput);
-        }
-
     }
 
     private void TurnCheck(Vector2 moveInput)
     {
-        if (_isFacingRight && moveInput.x < 0)
+        float xInput = moveInput.x;
+        if (_isFacingRight && xInput < 0)
         {
             Turn(false);
-        } else if (!_isFacingRight && moveInput.x > 0)
+        }
+        else if (!_isFacingRight && xInput > 0)
         {
             Turn(true);
         }
@@ -99,15 +96,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Turn(bool turnRight)
     {
-        if (turnRight)
-        {
-            _isFacingRight = true;
-            transform.Rotate(0f, 180f, 0f);
-        } else
-        {
-            _isFacingRight = false;
-            transform.Rotate(0f, 180f, 0f);
-        }
+        _isFacingRight = turnRight;
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * (_isFacingRight ? 1 : -1);
+        transform.localScale = scale;
     }
     #endregion
 
