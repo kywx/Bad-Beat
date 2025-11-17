@@ -12,6 +12,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask enemies;
     [SerializeField] Rigidbody2D playerRB;
     [SerializeField] float pogoForce;
+    
+    private int damage;
+    public PlayerCombatStatsSO stats;
 
     // Update is called once per frame
     private void OnSimpleAttack(){
@@ -34,7 +37,18 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (Collider2D enemyGameObject in enemy){
             //Debug.Log("hit!");
-            Destroy(enemyGameObject.gameObject);
+            //Destroy(enemyGameObject.gameObject);
+            EnemyHealthTemplate attackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyHealthTemplate>();
+            EnemyMovementTemplate knockbackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyMovementTemplate>();
+
+            if (attackEnemy != null && knockbackEnemy != null)
+            {
+                attackEnemy.TakeDamageSimple(stats.AttackDamage);
+                knockbackEnemy.Knockback(this.transform.position, stats.KnockbackForce);
+            } else
+            {
+                print("EnemyHealthTemplate not found");
+            }
             if (bounce){
                 playerRB.AddForce(transform.up * pogoForce);
             }
