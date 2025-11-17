@@ -135,22 +135,21 @@ public abstract class ProjectileBase : MonoBehaviour
         // the tag of the collided componet object  must be the label
       
        //  ===== damage enemy =====
-        if (collision.gameObject.CompareTag("Enemy")) {
-        EnemyHealthTemplate enemyHealth = collision.gameObject.GetComponent<EnemyHealthTemplate>();
-        if (enemyHealth != null) {
-            enemyHealth.TakeDamageSimple(damage);
-            OnHit(collision);
-            hitSomething = true; 
-        }
-        // Destroy this projectile after hitting
-        Destroy(gameObject);
-    }
+
+        //must use GetComponenetInParent 
+        EnemyHealthTemplate attackEnemy= collision.GetComponentInParent<EnemyHealthTemplate>();
+        if (attackEnemy != null) {
+                attackEnemy.TakeDamageSimple(damage);
+                OnHit(collision);
+                hitSomething = true; 
+                Destroy(gameObject);
+                
+                //Debug.Log("Hit enemy with damge");
+               
+            } 
+
 
         // ===== damage Player =====
-
-       if (collision.CompareTag("Player"))
-    {
-        Debug.Log("Hit player!");
         PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
         if (playerHealth != null)
         {   
@@ -158,7 +157,7 @@ public abstract class ProjectileBase : MonoBehaviour
             OnHit(collision);
             hitSomething = true; 
         }
-    }
+    
     
        
  
