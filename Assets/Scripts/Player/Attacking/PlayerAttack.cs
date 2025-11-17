@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
     //public static PlayerInput PlayerInput;
-    private Collider2D rightAttackRange;
+
     [SerializeField] private GameObject frontAttackPoint;
     [SerializeField] private GameObject upAttackPoint;
     [SerializeField] private GameObject pogoAttackPoint;
@@ -13,27 +14,79 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] Rigidbody2D playerRB;
     [SerializeField] float pogoForce;
 
+    [SerializeField] private Slider specialMeleeBar;
+
+    private bool specialMeleeCharging;
+    private int specialMeleeCharge;
+    private bool specialMeleeReleased;
+    [SerializeField] int specialMeleeChargeFrames;
+
+    private void Start(){
+        specialMeleeCharging = false;
+        specialMeleeCharge = 0;
+        specialMeleeReleased = false;
+        specialMeleeBar.maxValue = specialMeleeChargeFrames;
+        specialMeleeBar.value = 0;
+        specialMeleeBar.gameObject.SetActive(false);
+    }
+
+    private void Update(){
+        if(InputManager.SpecialMeleePressed){
+            specialMeleeCharging = true;
+            specialMeleeBar.gameObject.SetActive(true);
+        }
+        if(InputManager.SpecialMeleeReleased){
+            specialMeleeCharging = false;
+            specialMeleeBar.gameObject.SetActive(false);
+            if (specialMeleeCharge >= specialMeleeChargeFrames){
+                specialMeleeReleased = true;
+            }
+        }
+    }
+
+    private void FixedUpdate(){
+        if(specialMeleeCharging){
+            if(specialMeleeCharge < specialMeleeChargeFrames){
+                specialMeleeCharge += 1;
+                specialMeleeBar.value += 1;
+            }
+        }
+        if(specialMeleeReleased == true){
+            Collider2D[] enemy = Physics2D.OverlapCircleAll(frontAttackPoint.transform.position, radius, enemies);
+            foreach (Collider2D enemyGameObject in enemy){
+
+                //
+                //PLACEHOLDER BELOW
+                Destroy(enemyGameObject.gameObject);  //REPLACE WITH DAMAGING ENEMY FUNCTION/CODE HERE
+                //
+                //
+
+            }
+            specialMeleeCharge = 0;
+            specialMeleeBar.value = 0;
+            specialMeleeReleased = false;
+        }
+    }
+
     // Update is called once per frame
     private void OnSimpleAttack(){
         Collider2D[] enemy;
         bool bounce = false;
-        //Debug.Log("Tried hit!");
+        //Pogo
         if (Input.GetKey(KeyCode.DownArrow)){
-            //Debug.Log("Down!");
             enemy = Physics2D.OverlapCircleAll(pogoAttackPoint.transform.position, radius, enemies);
             bounce = true;
         }
+        //Up Attack
         else if(Input.GetKey(KeyCode.UpArrow)){
-            //Debug.Log("Up!");
             enemy = Physics2D.OverlapCircleAll(upAttackPoint.transform.position, radius, enemies);
         }
+        //Front Attack
         else{
-            //Debug.Log("Forward!");
             enemy = Physics2D.OverlapCircleAll(frontAttackPoint.transform.position, radius, enemies);
         }
 
         foreach (Collider2D enemyGameObject in enemy){
-            //Debug.Log("hit!");
             Destroy(enemyGameObject.gameObject);
             if (bounce){
                 playerRB.AddForce(transform.up * pogoForce);
