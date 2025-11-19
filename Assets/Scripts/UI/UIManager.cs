@@ -273,10 +273,9 @@ public class SteampunkUIManager : MonoBehaviour
         if (currentPlayerHealth < displayedHealth)
         {
             int damageTaken = displayedHealth - currentPlayerHealth;
-            for (int i = 0; i < damageTaken; i++)
-            {
-                StartCoroutine(BreakRightmostBulb());
-            }
+            
+            StartCoroutine(BreakNumBulbs(damageTaken));
+
             displayedHealth = currentPlayerHealth;
         }
 
@@ -610,13 +609,11 @@ public class SteampunkUIManager : MonoBehaviour
         return -1;
     }
 
-    private IEnumerator BreakRightmostBulb()
+    private IEnumerator BreakNumBulbs(int num_to_break)
     {
         int rightmostIndex = FindRightmostLitBulb();
-        if (rightmostIndex >= 0)
-        {
-            yield return StartCoroutine(BreakSpecificBulb(rightmostIndex));
-        }
+        for(int i = rightmostIndex; i > rightmostIndex - num_to_break && i > 0; i--)
+            yield return StartCoroutine(BreakSpecificBulb(i));
     }
 
     private IEnumerator BreakSpecificBulb(int bulbIndex)
