@@ -52,7 +52,7 @@ public class WeaponController : MonoBehaviour
     void Update()
     {
         // attack input
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             Attack();
         }
@@ -89,15 +89,7 @@ public Vector2 GetAttackDirection()
     
     void HandleWeaponSwitching()
     {
-        // Q/E switch
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SwitchWeapon(-1);
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            SwitchWeapon(1);
-        }
+       
         
         // number keys switch
         if (Input.GetKeyDown(KeyCode.Alpha1) && availableWeapons.Count > 0)

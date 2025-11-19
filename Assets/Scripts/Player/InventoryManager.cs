@@ -20,11 +20,8 @@ public class InventoryManager : MonoBehaviour{
     // test
     public Item testBatteryItem;
     public Item testBatteryItem_2;
-    void Start() { AddItem(testBatteryItem);
-    AddItem(testBatteryItem);
-    AddItem(testBatteryItem);
-    AddItem(testBatteryItem_2);
-    AddItem(testBatteryItem_2); }
+    void Start() {
+     }
     // test end
 
     void Awake(){
