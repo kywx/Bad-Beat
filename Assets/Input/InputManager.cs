@@ -11,11 +11,14 @@ public class InputManager : MonoBehaviour
     public static bool JumpWasReleased;
     public static bool RunIsHeld;
     public static bool InteractWasPressed;
+    public static bool SpecialMeleePressed;
+    public static bool SpecialMeleeReleased;
 
     private InputAction _moveAction;
     private InputAction _jumpAction;
     private InputAction _runAction;
     private InputAction _interactAction;
+    private InputAction _specialMeleeAction;
 
     private void Awake()
     {
@@ -25,6 +28,7 @@ public class InputManager : MonoBehaviour
         _runAction = PlayerInput.actions["Run"];
         _jumpAction = PlayerInput.actions["Jump"];
         _interactAction = PlayerInput.actions["Interact"];
+        _specialMeleeAction = PlayerInput.actions["SpecialMelee"];
     }
 
     private void Update()
@@ -37,6 +41,9 @@ public class InputManager : MonoBehaviour
 
         RunIsHeld = _runAction.IsPressed();
         InteractWasPressed = _interactAction.WasPressedThisFrame();
+
+        SpecialMeleePressed = _specialMeleeAction.WasPressedThisFrame();
+        SpecialMeleeReleased = _specialMeleeAction.WasReleasedThisFrame();
     }
 
 }
