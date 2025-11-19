@@ -13,6 +13,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask enemies;
     [SerializeField] Rigidbody2D playerRB;
     [SerializeField] float pogoForce;
+    
+    private int damage;
+    public PlayerCombatStatsSO stats;
 
     [SerializeField] private Slider specialMeleeBar;
 
@@ -88,6 +91,19 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (Collider2D enemyGameObject in enemy){
             Destroy(enemyGameObject.gameObject);
+            //Debug.Log("hit!");
+            //Destroy(enemyGameObject.gameObject);
+            EnemyHealthTemplate attackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyHealthTemplate>();
+            EnemyMovementTemplate knockbackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyMovementTemplate>();
+
+            if (attackEnemy != null && knockbackEnemy != null)
+            {
+                attackEnemy.TakeDamageSimple(stats.AttackDamage);
+                knockbackEnemy.Knockback(this.transform.position, stats.KnockbackForce);
+            } else
+            {
+                print("EnemyHealthTemplate not found");
+            }
             if (bounce){
                 playerRB.AddForce(transform.up * pogoForce);
             }

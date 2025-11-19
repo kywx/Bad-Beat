@@ -1,10 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionDetector : MonoBehaviour
 {
-    private IInteractable interactableInRange = null;
+    private List<IInteractable> interactableInRange = new List<IInteractable>();
     public GameObject interactionPrompt;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         interactionPrompt.SetActive(false);
@@ -12,30 +13,48 @@ public class InteractionDetector : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.InteractWasPressed && interactableInRange != null) 
+        if (InputManager.InteractWasPressed && interactableInRange.Count > 0) 
         {
-            interactableInRange?.Interact();
+            foreach (var interactable in interactableInRange)
+            {
+                if (interactable.CanInteract())
+                {
+                    interactable?.Interact();
+                }
+            }
         }
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out IInteractable interactable) && interactable.CanInteract())
+        IInteractable[] interactables = collision.GetComponents<IInteractable>();
+        foreach (var interactable in interactables)
         {
-            interactableInRange = interactable;
-            interactionPrompt.SetActive(true);
+            // skip disabled scripts
+            var script = interactable as MonoBehaviour;
+            if (!script.enabled)
+                continue;
+
+            if (interactable.CanInteract())
+            {
+                interactableInRange.Add(interactable);
+            }
         }
+        if (interactableInRange.Count > 0)
+            interactionPrompt.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out IInteractable interactable) && interactable == interactableInRange)
+        IInteractable[] interactables = collision.GetComponents<IInteractable>();
+
+        foreach (var interactable in interactables)
         {
-            interactableInRange = null;
-            interactionPrompt.SetActive(false);
+            interactableInRange.Remove(interactable);
         }
+
+        if (interactableInRange.Count == 0)
+            interactionPrompt.SetActive(false);
     }
-
-
 }

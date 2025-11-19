@@ -35,7 +35,6 @@ public class PlayerRespawn : MonoBehaviour {
     }
 
     private IEnumerator FadeCoroutine() {
-        print("Coroutine");
         float timer = 0f;
         Color curColor = BlackImage.color;
 
