@@ -52,7 +52,7 @@ public class WeaponController : MonoBehaviour
     void Update()
     {
         // attack input
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             Attack();
         }
