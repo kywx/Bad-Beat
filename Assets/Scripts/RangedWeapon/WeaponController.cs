@@ -89,7 +89,6 @@ public Vector2 GetAttackDirection()
     
     void HandleWeaponSwitching()
     {
-
         // number keys switch
         if (Input.GetKeyDown(KeyCode.Alpha1) && availableWeapons.Count > 0)
             EquipWeapon(0);

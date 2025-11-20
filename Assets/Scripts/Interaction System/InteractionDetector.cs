@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InteractionDetector : MonoBehaviour
@@ -15,7 +16,7 @@ public class InteractionDetector : MonoBehaviour
     {
         if (InputManager.InteractWasPressed && interactableInRange.Count > 0) 
         {
-            foreach (var interactable in interactableInRange)
+            foreach (var interactable in interactableInRange.ToList())
             {
                 if (interactable.CanInteract())
                 {

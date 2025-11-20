@@ -1528,7 +1528,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 1920}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1591,10 +1591,6 @@ PrefabInstance:
     - target: {fileID: 687649090569884277, guid: cfc6946547204a747b50351eee7dcc5c, type: 3}
       propertyPath: m_Name
       value: DialoguePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 3143330734075855293, guid: cfc6946547204a747b50351eee7dcc5c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5937882929049477599, guid: cfc6946547204a747b50351eee7dcc5c, type: 3}
       propertyPath: m_Pivot.x
