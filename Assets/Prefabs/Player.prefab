@@ -255,6 +255,8 @@ MonoBehaviour:
   playerRB: {fileID: 8303579779211601857}
   pogoForce: 10000
   stats: {fileID: 11400000, guid: 896690c19b1f2994d9d7b3e74e6f6327, type: 2}
+  specialMeleeBar: {fileID: 0}
+  specialMeleeChargeFrames: 48
 --- !u!1 &4451565006227233711
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +539,7 @@ GameObject:
   - component: {fileID: -7897508326606065911}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
