@@ -13356,6 +13356,22 @@ PrefabInstance:
       propertyPath: BlackoutCanvas
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2772646647779193249, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7791752638867363331, guid: d80c059db0557b44d9656b4f013ecf10, type: 3}
+    - target: {fileID: 2913672662343595291, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913672662343595291, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913672662343595291, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2913672662343595291, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.169971
@@ -13396,10 +13412,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2913672662343595291, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5012331854368946413, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
       propertyPath: specialMeleeBar
       value: 
       objectReference: {fileID: 717707640}
+    - target: {fileID: 6779233961748936737, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779233961748936737, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779233961748936737, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779233961748936737, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779233961748936737, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7670270333212235005, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
       propertyPath: m_Name
       value: Player
