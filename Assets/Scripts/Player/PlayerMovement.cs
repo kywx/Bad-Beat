@@ -1,3 +1,4 @@
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -34,10 +35,20 @@ public class PlayerMovement : MonoBehaviour
 
     private float _coyoteTimer;
 
+    private CameraFollowObject _cameraFollowObject; // added by Joseph following camera tutorial
+    [SerializeField] private GameObject _cameraFollowGO; // GO = GameObject
+    private float _fallSpeedYDampingChangeThreshold;
+
     private void Awake()
     {
         _isFacingRight = true;
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        _cameraFollowObject = _cameraFollowGO.GetComponent<CameraFollowObject>();
+        _fallSpeedYDampingChangeThreshold = CameraManager.instance._fallSpeedYDampingChangeThreshold;
     }
     public bool IsFacingRight
     {
@@ -48,6 +59,22 @@ public class PlayerMovement : MonoBehaviour
     {
         CountTimers();
         JumpChecks();
+
+
+        // if player falls past a certain speed
+        if (_rb.linearVelocityY < _fallSpeedYDampingChangeThreshold && !CameraManager.instance.isLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpYDamping(true);
+        }
+        
+        // if player is standing or moving up  
+        if(_rb.linearVelocityY >= 0f && !CameraManager.instance.isLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            // reset so it can be called again
+            CameraManager.instance.LerpedFromPlayerFalling = false;
+            CameraManager.instance.LerpYDamping(false);
+        }
+
     }
 
     private void FixedUpdate()
@@ -100,6 +127,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * (_isFacingRight ? 1 : -1);
         transform.localScale = scale;
+
+        // turn the camera
+        _cameraFollowObject.CallTurn();
     }
     #endregion
 
