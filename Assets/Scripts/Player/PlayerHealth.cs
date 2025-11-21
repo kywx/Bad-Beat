@@ -30,16 +30,19 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void Damage(int dmg)
-    {
-        if(iframeTimer > 0){
+    {   Debug.Log("Damage: "+dmg);
+     Debug.Log("current health: "+_health);
+        if(iframeTimer <= 0){
             _health -= dmg;
-
-        // Clamp to prevent negative health
+            Debug.Log("Actually decrease");
+            Debug.Log("current health: "+_health);
+            
+            // Clamp to prevent negative health
             _health = Mathf.Max(0, _health);
             iframeTimer = stats.iframes;
 
             if (_health <= 0 && RespawnManager != null)
-            {
+            {   Debug.Log("should respawn");
                 RespawnManager.Respawn();
             }
         }
@@ -53,5 +56,6 @@ public class PlayerHealth : MonoBehaviour
     public void HealToMax()
     {
         _health = stats.MaxHealth;
+        Debug.Log(_health);
     }
 }
