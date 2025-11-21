@@ -45,7 +45,8 @@ public class MossEnemyMovement: EnemyMovementTemplate
             _movementType = EnemyMovement.Unique;
         }
 
-        else if (math.abs(playerPos.x - this.transform.position.x) < _startChaseDistance)
+        else if (math.abs(playerPos.x - this.transform.position.x) < _startChaseDistance
+            && math.abs(playerPos.y - this.transform.position.y) < 5)  // arbitrary number, please change
         {
             _movementType = EnemyMovement.Chase;
         }
@@ -60,20 +61,20 @@ public class MossEnemyMovement: EnemyMovementTemplate
     protected override void RunPatrol()
     {
         //walk back and forth
-        avoidFalling();
+        AvoidFalling();
         rb.linearVelocityX = _groundSpeed;
         
         if (_grounded)
         {
-            Debug.Log("attempting jump");
+            //Debug.Log("attempting jump");
             rb.linearVelocityY = 5;
         }
     }
     protected override void RunChase()
     {
-        if(!avoidFalling() && (_player.transform.position.x - this.transform.position.x) * _groundSpeed < 0)
+        if(!AvoidFalling() && (_player.transform.position.x - this.transform.position.x) * _groundSpeed < 0)
         {
-            turn();
+            Turn();
         }
         rb.linearVelocityX = _groundSpeed;
 
@@ -86,7 +87,7 @@ public class MossEnemyMovement: EnemyMovementTemplate
         }
         if((_player.transform.position.x - this.transform.position.x) * _groundSpeed < 0)
         {
-            turn();
+            Turn();
         }
     }
     protected override void OnCollisionEnter2D(Collision2D collision)
@@ -94,17 +95,17 @@ public class MossEnemyMovement: EnemyMovementTemplate
         base.OnCollisionEnter2D(collision);
         if(collision.gameObject.tag == "Wall")
         {
-            turn();
+            Turn();
         }
     }
-    private void turn()
+    private void Turn()
     {
         _isFacingRight = !_isFacingRight;
         _groundSpeed *= -1;
         spr.flipX = !spr.flipX;
-        Debug.Log(_grounded);
+        //Debug.Log(_grounded);
     }
-    private bool avoidFalling()
+    private bool AvoidFalling()
     {
         if(!fallOffPlatforms){
             float offset = radius * (_isFacingRight ? 1 : -1) * 2;
@@ -113,7 +114,7 @@ public class MossEnemyMovement: EnemyMovementTemplate
             bool aboveGround = Physics2D.Raycast(startingPoint, Vector2.down, groundCheckDistance, LayerMask.GetMask("Ground"));
             if (!aboveGround)
             {
-                turn(); //turn to avoid falling off a platform
+                Turn(); //turn to avoid falling off a platform
                 return true;
             }
         }

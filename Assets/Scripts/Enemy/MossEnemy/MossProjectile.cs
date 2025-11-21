@@ -37,7 +37,7 @@ public class MossProjectile : OneInstanceDamage
         if(healthManager != null && !hit)
         {
             hit = true;
-            Debug.Log("hit");
+            //Debug.Log("hit");
             healthManager.Damage(damage_value);       
             die();
         }

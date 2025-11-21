@@ -41,7 +41,7 @@ public abstract class EnemyAttackTemplate : MonoBehaviour
         {
             //  hit.collider.gameObject.GetComponent<PLAYERLIFE>.TAKEDAMAGE(_attackDamage);
             //  hit.collider.gameObject.GetComponent<PLAYER____>.TAKEKNOCKBACK(_attackDamage);
-            Debug.Log("Player was hit");
+            //Debug.Log("Player was hit");
         }
     }
 
@@ -59,7 +59,7 @@ public abstract class EnemyAttackTemplate : MonoBehaviour
             //  collision.gameObject.GetComponent<PLAYER____>.TAKEKNOCKBACK(_attackDamage);
             health.Damage(_attackDamage);
 
-            Debug.Log("Collision damage");
+            //Debug.Log("Collision damage");
         }
     }
 
