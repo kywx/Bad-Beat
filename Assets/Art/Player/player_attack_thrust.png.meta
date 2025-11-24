@@ -1,52 +1,40 @@
 fileFormatVersion: 2
-guid: dbc156dc4f6bf32459c13d4f67cf2290
+guid: 8fb5cd4f14d35974dbe16ea9d59ec608
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1929119303305513068
-    second: Attack_Wave_0
+      213: 6748263714737501255
+    second: player_attack_thrust_0
   - first:
-      213: -8234613197320559389
-    second: Attack_Wave_1
+      213: -4730948894612363219
+    second: player_attack_thrust_1
   - first:
-      213: -2689119309481456845
-    second: Attack_Wave_2
+      213: 1625102845791015281
+    second: player_attack_thrust_2
   - first:
-      213: -4003716053256865158
-    second: Attack_Wave_3
+      213: 2715184772367260973
+    second: player_attack_thrust_3
   - first:
-      213: -2942745886623119852
-    second: Attack_Wave_4
+      213: -5186366392416539534
+    second: player_attack_thrust_4
   - first:
-      213: 7210669648734773850
-    second: Attack_Wave_5
+      213: -6259007122969678050
+    second: player_attack_thrust_5
   - first:
-      213: 5435737200371598782
-    second: Attack_Wave_6
+      213: 682317351945977996
+    second: player_attack_thrust_6
   - first:
-      213: 4169617749303988096
-    second: Attack_Wave_7
+      213: -403874289978127390
+    second: player_attack_thrust_7
   - first:
-      213: -8530953306836268021
-    second: Attack_Wave_8
+      213: -2190844470961555094
+    second: player_attack_thrust_8
   - first:
-      213: -4560807387255920165
-    second: Attack_Wave_9
+      213: 6718746756614995861
+    second: player_attack_thrust_9
   - first:
-      213: 6720608578261966899
-    second: Attack_Wave_10
-  - first:
-      213: -2146539847767121089
-    second: Attack_Wave_11
-  - first:
-      213: 1331390719758923198
-    second: Attack_Wave_12
-  - first:
-      213: 6426933386617456619
-    second: Attack_Wave_13
-  - first:
-      213: 3964771901494046933
-    second: Attack_Wave_14
+      213: -6951943239768560803
+    second: player_attack_thrust_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -93,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 192
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -138,238 +126,247 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_Wave_0
+      name: player_attack_thrust_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 13
-        width: 117
-        height: 97
+        x: 68
+        y: 0
+        width: 58
+        height: 101
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 27, y: 4, z: 18, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c68cfd219cb95ca10800000000000000
-      internalID: 1929119303305513068
+      spriteID: 744369f3816a6ad50800000000000000
+      internalID: 6748263714737501255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Wave_2
+      name: player_attack_thrust_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 8
-        width: 110
-        height: 97
+        x: 254
+        y: 0
+        width: 66
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 27, y: 4, z: 10, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33bc6bf4c345eaad0800000000000000
-      internalID: -2689119309481456845
+      spriteID: d286a16cb0b485eb0800000000000000
+      internalID: -4730948894612363219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Wave_3
+      name: player_attack_thrust_2
       rect:
         serializedVersion: 2
-        x: 251
-        y: 8
-        width: 126
-        height: 98
+        x: 439
+        y: 0
+        width: 73
+        height: 87
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 4, z: 0, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7a78105671ff68c0800000000000000
-      internalID: -4003716053256865158
+      spriteID: 17199d69d668d8610800000000000000
+      internalID: 1625102845791015281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Wave_4
+      name: player_attack_thrust_3
       rect:
         serializedVersion: 2
-        x: 379
-        y: 8
-        width: 124
-        height: 105
+        x: 631
+        y: 0
+        width: 74
+        height: 79
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 40, y: 4, z: 9, w: 14}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 416469b15344927d0800000000000000
-      internalID: -2942745886623119852
+      spriteID: d2d10803a264ea520800000000000000
+      internalID: 2715184772367260973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Wave_5
+      name: player_attack_thrust_4
       rect:
         serializedVersion: 2
-        x: 504
-        y: 7
-        width: 104
-        height: 138
+        x: 823
+        y: 0
+        width: 76
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 28, y: 4, z: 4, w: 29}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a52e68d77d1711460800000000000000
-      internalID: 7210669648734773850
+      spriteID: 27cecf0ae335608b0800000000000000
+      internalID: -5186366392416539534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Wave_6
+      name: player_attack_thrust_5
       rect:
         serializedVersion: 2
-        x: 610
-        y: 7
-        width: 154
-        height: 114
+        x: 1024
+        y: 0
+        width: 73
+        height: 86
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 13, y: 4, z: 50, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb586881f2e9f6b40800000000000000
-      internalID: 5435737200371598782
+      spriteID: e1fa0ccee2a8329a0800000000000000
+      internalID: -6259007122969678050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Wave_7
+      name: player_attack_thrust_6
       rect:
         serializedVersion: 2
-        x: 767
-        y: 9
-        width: 160
-        height: 97
+        x: 1206
+        y: 0
+        width: 132
+        height: 86
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 44, y: 4, z: 40, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08f8d6c50457dd930800000000000000
-      internalID: 4169617749303988096
+      spriteID: c8043da3404187900800000000000000
+      internalID: 682317351945977996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Wave_9
+      name: player_attack_thrust_7
       rect:
         serializedVersion: 2
-        x: 930
-        y: 8
-        width: 148
-        height: 98
+        x: 1397
+        y: 0
+        width: 72
+        height: 90
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 44, y: 4, z: 40, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd922a178d1c4b0c0800000000000000
-      internalID: -4560807387255920165
+      spriteID: 2ebc0fb1976256af0800000000000000
+      internalID: -403874289978127390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Wave_11
+      name: player_attack_thrust_8
       rect:
         serializedVersion: 2
-        x: 1079
-        y: 9
-        width: 177
-        height: 97
+        x: 1591
+        y: 0
+        width: 73
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 44, y: 4, z: 78, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f33ae9d9165f532e0800000000000000
-      internalID: -2146539847767121089
+      spriteID: a69353eaf8e8891e0800000000000000
+      internalID: -2190844470961555094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Wave_13
+      name: player_attack_thrust_9
       rect:
         serializedVersion: 2
-        x: 1256
-        y: 8
-        width: 181
-        height: 97
+        x: 1786
+        y: 0
+        width: 74
+        height: 87
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 44, y: 4, z: 78, w: 5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be78e602ddd013950800000000000000
-      internalID: 6426933386617456619
+      spriteID: 59f38d3e398cd3d50800000000000000
+      internalID: 6718746756614995861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_thrust_10
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 0
+        width: 66
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5baae6d47cb58f90800000000000000
+      internalID: -6951943239768560803
       vertices: []
       indices: 
       edges: []
@@ -378,7 +375,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 67ccd7899847e044ca022b1d1de5391b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -388,21 +385,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Attack_Wave_0: 1929119303305513068
-      Attack_Wave_1: -8234613197320559389
-      Attack_Wave_10: 6720608578261966899
-      Attack_Wave_11: -2146539847767121089
-      Attack_Wave_12: 1331390719758923198
-      Attack_Wave_13: 6426933386617456619
-      Attack_Wave_14: 3964771901494046933
-      Attack_Wave_2: -2689119309481456845
-      Attack_Wave_3: -4003716053256865158
-      Attack_Wave_4: -2942745886623119852
-      Attack_Wave_5: 7210669648734773850
-      Attack_Wave_6: 5435737200371598782
-      Attack_Wave_7: 4169617749303988096
-      Attack_Wave_8: -8530953306836268021
-      Attack_Wave_9: -4560807387255920165
+      player_attack_thrust_0: 6748263714737501255
+      player_attack_thrust_1: -4730948894612363219
+      player_attack_thrust_10: -6951943239768560803
+      player_attack_thrust_2: 1625102845791015281
+      player_attack_thrust_3: 2715184772367260973
+      player_attack_thrust_4: -5186366392416539534
+      player_attack_thrust_5: -6259007122969678050
+      player_attack_thrust_6: 682317351945977996
+      player_attack_thrust_7: -403874289978127390
+      player_attack_thrust_8: -2190844470961555094
+      player_attack_thrust_9: 6718746756614995861
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
