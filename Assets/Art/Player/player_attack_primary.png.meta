@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: f22c1423aeb15da4ba340598af67da86
+guid: 1e4905ee639269b4089467e0f397c79c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5257041818569765216
-    second: Attack_Primary_0
+      213: -3703166998486795000
+    second: player_attack_primary_0
   - first:
-      213: -3650506997345831976
-    second: Attack_Primary_1
+      213: -7388276660008037421
+    second: player_attack_primary_1
   - first:
-      213: -2427941634941357268
-    second: Attack_Primary_2
+      213: 4567554442246814280
+    second: player_attack_primary_2
   - first:
-      213: 4677222673791494078
-    second: Attack_Primary_3
+      213: -5601174221254904521
+    second: player_attack_primary_3
   - first:
-      213: 187160991051613375
-    second: Attack_Primary_4
+      213: 1837915089958080194
+    second: player_attack_primary_4
   - first:
-      213: 5561415931864651644
-    second: Attack_Primary_5
+      213: -7901886835200340261
+    second: player_attack_primary_5
   - first:
-      213: -2225739010879834486
-    second: Attack_Primary_6
-  - first:
-      213: -8472954871538040434
-    second: Attack_Primary_7
+      213: -5799647305316436916
+    second: player_attack_primary_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 192
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +93,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,52 +114,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_Primary_0
+      name: player_attack_primary_0
       rect:
         serializedVersion: 2
         x: 11
-        y: 16
-        width: 121
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0ae86caa15c3b07b0800000000000000
-      internalID: -5257041818569765216
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_Primary_1
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 16
+        y: 0
         width: 113
-        height: 97
+        height: 93
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,130 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d3bf152a3bc65dc0800000000000000
-      internalID: -3650506997345831976
+      spriteID: 80dbe3f2c35bb9cc0800000000000000
+      internalID: -3703166998486795000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Primary_2
+      name: player_attack_primary_1
       rect:
         serializedVersion: 2
-        x: 268
-        y: 15
-        width: 131
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c2370f162f73e4ed0800000000000000
-      internalID: -2427941634941357268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_Primary_3
-      rect:
-        serializedVersion: 2
-        x: 397
-        y: 9
-        width: 119
-        height: 114
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb7aeb6ad35d8e040800000000000000
-      internalID: 4677222673791494078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_Primary_4
-      rect:
-        serializedVersion: 2
-        x: 514
-        y: 5
-        width: 105
-        height: 136
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fb401730eede89200800000000000000
-      internalID: 187160991051613375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_Primary_5
-      rect:
-        serializedVersion: 2
-        x: 621
-        y: 3
-        width: 152
-        height: 114
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c779dfa035e1e2d40800000000000000
-      internalID: 5561415931864651644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_Primary_6
-      rect:
-        serializedVersion: 2
-        x: 773
-        y: 5
-        width: 160
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8637cd79269c11e0800000000000000
-      internalID: -2225739010879834486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_Primary_7
-      rect:
-        serializedVersion: 2
-        x: 931
+        x: 192
         y: 0
         width: 128
-        height: 103
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,8 +155,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e814f0c9f640a6a80800000000000000
-      internalID: -8472954871538040434
+      spriteID: 3d359e1c581977990800000000000000
+      internalID: -7388276660008037421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_primary_2
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 0
+        width: 119
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84af066b096336f30800000000000000
+      internalID: 4567554442246814280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_primary_3
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 0
+        width: 147
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735b609d8b1a442b0800000000000000
+      internalID: -5601174221254904521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_primary_4
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 0
+        width: 149
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce08406906918910800000000000000
+      internalID: 1837915089958080194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_primary_5
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 0
+        width: 159
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde4c841acbd65290800000000000000
+      internalID: -7901886835200340261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player_attack_primary_6
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 0
+        width: 141
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c44ff00f083838fa0800000000000000
+      internalID: -5799647305316436916
       vertices: []
       indices: 
       edges: []
@@ -323,14 +285,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Attack_Primary_0: -5257041818569765216
-      Attack_Primary_1: -3650506997345831976
-      Attack_Primary_2: -2427941634941357268
-      Attack_Primary_3: 4677222673791494078
-      Attack_Primary_4: 187160991051613375
-      Attack_Primary_5: 5561415931864651644
-      Attack_Primary_6: -2225739010879834486
-      Attack_Primary_7: -8472954871538040434
+      player_attack_primary_0: -3703166998486795000
+      player_attack_primary_1: -7388276660008037421
+      player_attack_primary_2: 4567554442246814280
+      player_attack_primary_3: -5601174221254904521
+      player_attack_primary_4: 1837915089958080194
+      player_attack_primary_5: -7901886835200340261
+      player_attack_primary_6: -5799647305316436916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

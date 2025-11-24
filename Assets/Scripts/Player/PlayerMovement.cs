@@ -39,10 +39,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject _cameraFollowGO; // GO = GameObject
     private float _fallSpeedYDampingChangeThreshold;
 
+    private Animator _anim;
+
     private void Awake()
     {
         _isFacingRight = true;
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -85,9 +88,11 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded)
         {
             Move(MoveStats.GroundAcceleration, MoveStats.GroundDeceleration, InputManager.Movement);
+            
         } else
         {
             Move(MoveStats.AirAcceleration, MoveStats.AirDeceleration, InputManager.Movement);
+            _anim.SetBool("isRunning", false);
         }
     }
 
@@ -114,10 +119,16 @@ public class PlayerMovement : MonoBehaviour
         if (_isFacingRight && xInput < 0)
         {
             Turn(false);
+            _anim.SetBool("isRunning", true);
         }
         else if (!_isFacingRight && xInput > 0)
         {
             Turn(true);
+            _anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            _anim.SetBool("isRunning", false);
         }
     }
 
@@ -169,6 +180,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Normal grounded jump
             InitiateJump(1);
+            _anim.SetTrigger("jump");
             if (_jumpReleasedDuringBuffer)
             {
                 _isFastFalling = true;
@@ -180,18 +192,22 @@ public class PlayerMovement : MonoBehaviour
             // While jumping -> double jump
             _isFastFalling = false;
             InitiateJump(1);
+
+            _anim.SetTrigger("jump");
         }
         else if (_jumpBufferTimer > 0f && _isFalling && _numberOfJumpsUsed < MoveStats.NumberOfJumpsAllowed - 1)
         {
             // While falling -> air jump
             _isFastFalling = false;
             InitiateJump(2);
+            _anim.SetTrigger("jump");
         }
         // Landed
         if ((_isJumping || _isFalling) && _isGrounded && VerticalVelocity <= 0f)
         {
             _isJumping = false;
             _isFalling = false;
+            _anim.SetBool("isFalling", false);
             _isFastFalling = false;
             _fastFallTime = 0f;
             _isPastApexThreshold = false;
@@ -242,6 +258,8 @@ public class PlayerMovement : MonoBehaviour
                             _isPastApexThreshold = false;
                             _isJumping = false;
                             _isFalling = true;
+
+                            _anim.SetBool("isFalling", true);
                         }
                     }
                 } else
@@ -262,6 +280,7 @@ public class PlayerMovement : MonoBehaviour
             if (!_isFalling)
             {
                 _isFalling = true;
+                _anim.SetBool("isFalling", true);
             }
         }
 
@@ -284,6 +303,7 @@ public class PlayerMovement : MonoBehaviour
             if (!_isFalling)
             {
                 _isFalling = true;
+                _anim.SetBool("isFalling", true);
             }
             VerticalVelocity += MoveStats.Gravity * Time.fixedDeltaTime;
         }
@@ -307,9 +327,11 @@ public class PlayerMovement : MonoBehaviour
         if (_groundHit.collider != null)
         {
             _isGrounded = true;
+            _anim.SetBool("isGrounded", true);
         } else
         {
             _isGrounded = false;
+            _anim.SetBool("isGrounded", false);
         }
 
         #region Debug Visualization
