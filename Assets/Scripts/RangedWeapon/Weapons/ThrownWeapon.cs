@@ -3,7 +3,7 @@ using UnityEngine;
 public class ThrownWeapon : WeaponBase
 {
     [Header("Throwing Settings")]
-    public float throwAngle = 30f;
+    public float throwAngle = 0f;
     public int projectileCount = 1;
     public float spreadAngle = 0f;
     

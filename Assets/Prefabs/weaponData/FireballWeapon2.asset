@@ -22,6 +22,6 @@ MonoBehaviour:
   projectileData: {fileID: 11400000, guid: 9b5ed75b398164f228b58dcc4237f6ac, type: 2}
   attackSound: {fileID: 0}
   attackEffect: {fileID: 0}
-  throwAngle: 30
+  throwAngle: 0
   projectileCount: 2
   spreadAngle: 9

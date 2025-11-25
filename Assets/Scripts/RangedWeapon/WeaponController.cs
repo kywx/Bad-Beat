@@ -79,7 +79,7 @@ public class WeaponController : MonoBehaviour
     
 public Vector2 GetAttackDirection()
 {  bool isFacingRight = playerMovement.IsFacingRight;
-   float baseAngle = isFacingRight ? 8f : 172f; // 0° for right, 180° for left
+   float baseAngle = isFacingRight ? 0f : 180f; // 0° for right, 180° for left
 
     float fireAngleRad = baseAngle * Mathf.Deg2Rad;
     Vector2 direction = new Vector2(Mathf.Cos(fireAngleRad), Mathf.Sin(fireAngleRad));
