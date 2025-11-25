@@ -637,6 +637,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1023608151}
+  - {fileID: 130856173}
   - {fileID: 560049293}
   - {fileID: 663504814}
   - {fileID: 1101729561}
@@ -644,13 +645,17 @@ Transform:
   - {fileID: 754648634}
   - {fileID: 1672482891}
   - {fileID: 277108530}
-  - {fileID: 1762050245}
   m_Father: {fileID: 801584647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &112423983 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8017719458906746598, guid: 626e478295feebb42a200d7c79d32e56, type: 3}
   m_PrefabInstance: {fileID: 652303140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &130856173 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+  m_PrefabInstance: {fileID: 1755839168}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &134843397
 GameObject:
@@ -13284,6 +13289,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751856580}
   m_CullTransparentMesh: 1
+--- !u!1001 &1755839168
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 104780074}
+    m_Modifications:
+    - target: {fileID: 3102537295332147992, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_Name
+      value: moss creature (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1235.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
 --- !u!1 &1760250676
 GameObject:
   m_ObjectHideFlags: 0
@@ -13371,68 +13433,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1762050244
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 104780074}
-    m_Modifications:
-    - target: {fileID: 3102537295332147992, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_Name
-      value: moss creature (8)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1220
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
---- !u!4 &1762050245 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4675305552165741222, guid: 6be66c0bb9406b84a81dfdbb33c0fa0b, type: 3}
-  m_PrefabInstance: {fileID: 1762050244}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1765167009
 PrefabInstance:
   m_ObjectHideFlags: 0
