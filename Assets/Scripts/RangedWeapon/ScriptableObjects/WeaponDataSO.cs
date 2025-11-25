@@ -53,7 +53,7 @@ public class WeaponDataSO : ScriptableObject
     [Header("=== Throwing Configuration(Only for Thrown type) ===")]
     [Tooltip("Upward angle for arc trajectory (degrees)")]
     [Range(0f, 90f)]
-    public float throwAngle = 30f;
+    public float throwAngle = 0f;
 
     [Tooltip("Number of projectiles per attack")]
     [Range(1, 10)]

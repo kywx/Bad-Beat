@@ -15,7 +15,7 @@ MonoBehaviour:
   projectileName: FireballProjectileData2
   speed: 15
   lifetime: 3
-  useGravity: 1
+  useGravity: 0
   gravityScale: 0.35
   piercing: 0
   maxPierceCount: 1
