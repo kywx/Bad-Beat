@@ -88,6 +88,11 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded)
         {
             Move(MoveStats.GroundAcceleration, MoveStats.GroundDeceleration, InputManager.Movement);
+
+            if (InputManager.Movement.x != 0)
+            {
+                _anim.SetBool("isRunning", true);
+            }
             
         } else
         {
