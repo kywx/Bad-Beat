@@ -604,11 +604,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 314206917126398085, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.984
+      value: -1.095
       objectReference: {fileID: 0}
     - target: {fileID: 314206917126398085, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.178
+      value: -1.446
       objectReference: {fileID: 0}
     - target: {fileID: 314206917126398085, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
       propertyPath: m_LocalPosition.z
@@ -646,6 +646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rat
       objectReference: {fileID: 0}
+    - target: {fileID: 3547620072828285102, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1027,7 +1031,7 @@ Transform:
   m_GameObject: {fileID: 1634383920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.0017452955, z: 0, w: 0.9999985}
-  m_LocalPosition: {x: 2.57, y: 1.02, z: 0}
+  m_LocalPosition: {x: 2.459, y: -0.281, z: -0}
   m_LocalScale: {x: 8.05, y: 0.51, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1081,6 +1085,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6147978352683803087, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: _cameraFollowGO
+      value: 
+      objectReference: {fileID: 506521029}
     - target: {fileID: 7670270333212235005, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1089,6 +1097,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8303579779211601857, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: b9276fdc3d0a7224f80393e725f09efa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

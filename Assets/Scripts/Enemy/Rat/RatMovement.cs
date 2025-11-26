@@ -7,7 +7,9 @@ public class RatMovement : EnemyMovementTemplate
 {
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform ray;
+    [SerializeField] private Transform groundRay;
+    [SerializeField] private Transform obstacleRay;
+    [SerializeField] private LayerMask obstacleLayers;
     [SerializeField] private float stunTimer;
     [SerializeField] private float attackTimer;
     [SerializeField] private float jumpForceX;
@@ -19,7 +21,6 @@ public class RatMovement : EnemyMovementTemplate
 
     private RatHealth health;
     private Animator animator;
-    private ObstacleCheck obstacleCheck;
     private PlayerDetection playerDetection;
 
 
@@ -30,7 +31,6 @@ public class RatMovement : EnemyMovementTemplate
         base.Awake();
         health = GetComponent<RatHealth>();
         animator = GetComponent<Animator>();
-        obstacleCheck = GetComponentInChildren<ObstacleCheck>();
         playerDetection = GetComponentInChildren<PlayerDetection>();
     }
 
@@ -41,10 +41,28 @@ public class RatMovement : EnemyMovementTemplate
 
     protected override void RunPatrol()
     {        
+        Vector2 rayDir = transform.right;
+        if (facingRight == true)
+        {
+            rayDir = Vector2.right;
+        }
+        else 
+        {
+            rayDir = Vector2.left;
+        }
 
-        bool hit = Physics2D.Raycast(ray.position, Vector2.down, .5f, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(ray.position, Vector2.down * .5f, Color.red);
-        if (hit == true) {
+        bool isGrounded = Physics2D.Raycast(groundRay.position, Vector2.down, .5f, LayerMask.GetMask("Ground"));
+        RaycastHit2D obstacleDetected = Physics2D.Raycast(obstacleRay.position, rayDir, .2f, obstacleLayers);
+
+        Debug.DrawRay(groundRay.position, Vector2.down * .5f, Color.red);
+        Debug.DrawRay(obstacleRay.position, rayDir * .2f, Color.blue);
+
+        if (obstacleDetected && obstacleDetected.collider.gameObject != this.gameObject)
+        {
+            Flip();
+        }
+
+        if (isGrounded == true) {
             if (facingRight == true) {
                 rb.linearVelocity = new Vector2(_groundSpeed, rb.linearVelocityY);
             } else {
@@ -59,10 +77,6 @@ public class RatMovement : EnemyMovementTemplate
 
     protected override void DetermineMovement()
     {
-        if (obstacleCheck.obstacleDetected == true)
-        {
-            Flip();
-        }
 
         if (StunCounter > 0)
         {
