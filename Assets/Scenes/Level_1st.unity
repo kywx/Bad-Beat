@@ -13653,6 +13653,10 @@ PrefabInstance:
       propertyPath: BlackImage
       value: 
       objectReference: {fileID: 1000530534}
+    - target: {fileID: 1640284236270119716, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 28627911}
     - target: {fileID: 2913672662343595291, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.61

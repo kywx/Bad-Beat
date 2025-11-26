@@ -413,6 +413,7 @@ public class SteampunkUIManager : MonoBehaviour
 
     private void InitializeHealthBar()
     {
+        print("Bar intializing");
         ClearHealthBar();
 
         if (frameSprite != null)
@@ -432,7 +433,7 @@ public class SteampunkUIManager : MonoBehaviour
             displayedMaxHealth = playerStats != null ? playerStats.MaxHealth : 3;
             displayedHealth = displayedMaxHealth;
         }
-
+        
         for (int i = 0; i < displayedMaxHealth; i++)
         {
             CreateBulb(i);
