@@ -37,7 +37,6 @@ public class PlayerHealth : MonoBehaviour
         //Debug.Log("current health: "+_health);
         if(iframeTimer <= 0){
             _health -= dmg;
-            Debug.Log("Health: " + CurrentHealth);
             //Debug.Log("Actually decrease");
             //Debug.Log("current health: "+_health);
 
