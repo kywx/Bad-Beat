@@ -6,6 +6,7 @@ public class PlayerRespawn : MonoBehaviour {
     public Vector2 default_spawn_point; //default spawn point to be set for each scene.
     private PlayerHealth HealthManager;
     public Image BlackImage;
+    public GameObject BImage;
     public float FadeDuration = 0.5f;
     private PlayerPoisoner PoisonManager;
 
@@ -25,7 +26,7 @@ public class PlayerRespawn : MonoBehaviour {
         BlackImage.color = Color.black;
         if (HealthManager != null)
         {
-            HealthManager.HealToMax();
+            //HealthManager.HealToMax();
         }
         if (PoisonManager != null)
         {
@@ -34,9 +35,17 @@ public class PlayerRespawn : MonoBehaviour {
         StartCoroutine(FadeCoroutine());
     }
 
+    public void Warp() {
+        this.transform.position = spawn_point;
+        BlackImage.color = Color.black;
+        StartCoroutine(FadeCoroutine());
+    }
+
     private IEnumerator FadeCoroutine() {
+        print("Fade");
         float timer = 0f;
         Color curColor = BlackImage.color;
+        BImage.SetActive(true);
 
         while (timer < FadeDuration) {
             timer += Time.deltaTime;
@@ -44,5 +53,6 @@ public class PlayerRespawn : MonoBehaviour {
             BlackImage.color = new Color(curColor.r, curColor.g, curColor.b, newAlpha);
             yield return null;
         }
+        BImage.SetActive(false);
     }
 }
