@@ -50,6 +50,12 @@ public class InventoryManager : MonoBehaviour{
     Time.timeScale = willOpen ? 0 : 1; // Pause when open, resume when closed
 }
 
+    public bool HasItem(Item item)
+    {
+        return itemCounts.ContainsKey(item) && itemCounts[item] > 0;
+    }
+
+
 
 
     public void AddItem(Item item) {
