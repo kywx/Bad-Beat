@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 
     public PlayerCombatStatsSO stats;
     private PlayerRespawn RespawnManager;
+
     public GameObject UIManager;
 
     private float iframeTimer;
@@ -36,7 +37,11 @@ public class PlayerHealth : MonoBehaviour
         //Debug.Log("current health: "+_health);
         if(iframeTimer <= 0){
             _health -= dmg;
-            UIManager.GetComponent<SteampunkUIManager>().standaloneCurrentHealth -= dmg;
+            //UIManager.GetComponent<SteampunkUIManager>().standaloneCurrentHealth -= dmg;
+            for (int i = 0; i < dmg; i++) {
+                //UIManager.GetComponent<SteampunkUIManager>().standaloneCurrentHealth -= 1;
+            }
+            Debug.Log("Health: " + CurrentHealth);
             //Debug.Log("Actually decrease");
             //Debug.Log("current health: "+_health);
 
@@ -47,8 +52,8 @@ public class PlayerHealth : MonoBehaviour
             if (_health <= 0 && RespawnManager != null)
             {
                 //Debug.Log("should respawn");
-                print(_health);
                 RespawnManager.Respawn();
+                //UIManager.GetComponent<SteampunkUIManager>().standaloneCurrentHealth = MaxHealth;
             }
         }
     }
@@ -56,11 +61,13 @@ public class PlayerHealth : MonoBehaviour
     public void Heal(int amt)
     {
         _health = Mathf.Min(stats.MaxHealth, _health + amt); // Fixed: was Mathf.Max
+        //UIManager.GetComponent<SteampunkUIManager>().standaloneCurrentHealth = Mathf.Min(stats.MaxHealth, _health + amt);
     }
 
     public void HealToMax()
     {
         _health = stats.MaxHealth;
+        //UIManager.GetComponent<SteampunkUIManager>().standaloneCurrentHealth = stats.MaxHealth;
         //Debug.Log(_health);
     }
 }

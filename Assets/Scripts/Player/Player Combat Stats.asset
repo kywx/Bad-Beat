@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964b513fde8106c4f8ebf10520731682, type: 3}
   m_Name: Player Combat Stats
   m_EditorClassIdentifier: 
-  MaxHealth: 3
+  MaxHealth: 5
   AttackDamage: 1
   iframes: 0.1
   KnockbackForce: 2

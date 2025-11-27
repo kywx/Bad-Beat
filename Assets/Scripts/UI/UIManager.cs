@@ -10,6 +10,7 @@ public class SteampunkUIManager : MonoBehaviour
 {
     [Header("References")]
     public PlayerHealth playerHealth;
+    public GameObject Player;
     public PlayerCombatStatsSO playerStats;
     public Canvas canvas;
     public RectTransform healthBarContainer;
@@ -267,7 +268,8 @@ public class SteampunkUIManager : MonoBehaviour
 
     private void HandleNormalMode()
     {
-        int currentPlayerHealth = playerHealth != null ? playerHealth.CurrentHealth : 0;
+        //int currentPlayerHealth = playerHealth != null ? playerHealth.CurrentHealth : 0;
+        int currentPlayerHealth = Player.GetComponent <PlayerHealth>().CurrentHealth;
 
         // Handle damage
         if (currentPlayerHealth < displayedHealth)
@@ -413,7 +415,6 @@ public class SteampunkUIManager : MonoBehaviour
 
     private void InitializeHealthBar()
     {
-        print("Bar intializing");
         ClearHealthBar();
 
         if (frameSprite != null)
