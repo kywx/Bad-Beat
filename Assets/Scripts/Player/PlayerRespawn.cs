@@ -25,12 +25,18 @@ public class PlayerRespawn : MonoBehaviour {
         BlackImage.color = Color.black;
         if (HealthManager != null)
         {
-            HealthManager.HealToMax();
+            //HealthManager.HealToMax();
         }
         if (PoisonManager != null)
         {
             PoisonManager.CurePoison();
         }
+        StartCoroutine(FadeCoroutine());
+    }
+
+    public void Warp() {
+        this.transform.position = spawn_point;
+        BlackImage.color = Color.black;
         StartCoroutine(FadeCoroutine());
     }
 

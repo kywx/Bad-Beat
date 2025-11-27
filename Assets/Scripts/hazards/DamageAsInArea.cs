@@ -16,6 +16,7 @@ public class DamageAsInArea : MonoBehaviour {
         if (health != null && !debounce) {
             StartCoroutine(Debounce(0.5f));
             health.Damage(damage_value);
+            collision.gameObject.GetComponent<PlayerRespawn>().Warp();
         }
     }
 }

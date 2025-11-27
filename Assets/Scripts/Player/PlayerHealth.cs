@@ -48,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
             if (_health <= 0 && RespawnManager != null)
             {
                 //Debug.Log("should respawn");
+                HealToMax();
                 RespawnManager.Respawn();
             }
         }
