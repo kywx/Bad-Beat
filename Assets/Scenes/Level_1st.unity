@@ -515,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1640284236270119716, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+  Player: {fileID: 1884476124}
   playerStats: {fileID: 11400000, guid: 896690c19b1f2994d9d7b3e74e6f6327, type: 2}
   canvas: {fileID: 148477814}
   healthBarContainer: {fileID: 1085350849}
@@ -533,7 +534,7 @@ MonoBehaviour:
   connectorXAdjust: 0
   connectorScale: 0.4
   liveUpdateEnabled: 1
-  standaloneTestMode: 1
+  standaloneTestMode: 0
   standaloneMaxHealth: 5
   standaloneCurrentHealth: 5
   testDamage: 0
@@ -13650,6 +13651,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1584322286571426345, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+      propertyPath: BImage
+      value: 
+      objectReference: {fileID: 1000530532}
+    - target: {fileID: 1584322286571426345, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
       propertyPath: BlackImage
       value: 
       objectReference: {fileID: 1000530534}
@@ -14661,6 +14666,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0f2a85d3bc9fd4449a54c433dcdaa19, type: 3}
+--- !u!1 &1884476124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7670270333212235005, guid: 182dcb37f8e99c941bf68d1c967d5dea, type: 3}
+  m_PrefabInstance: {fileID: 1765167009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1894057372
 GameObject:
   m_ObjectHideFlags: 0
