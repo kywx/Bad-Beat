@@ -49,7 +49,6 @@ public class PlayerHealth : MonoBehaviour
             {
                 //Debug.Log("should respawn");
                 RespawnManager.Respawn();
-                //UIManager.GetComponent<SteampunkUIManager>().standaloneCurrentHealth = MaxHealth;
             }
         }
     }
