@@ -27,6 +27,8 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
 
     protected bool _grounded;
 
+    private const int GroundLayer = 6;
+
 
     #region Movement Stats
     protected float _groundSpeed;
@@ -49,7 +51,7 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         _idleCountdown = _idleTimer;
 
-        if(_patrolPoints != null)
+        if(_patrolPoints != null && _patrolPoints.Count != 0)
         {
             _targetDestination = _patrolPoints[0].position;
         }
@@ -136,7 +138,7 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.layer == GroundLayer)
         {
             _grounded = true;
         }
@@ -144,10 +146,14 @@ public abstract class EnemyMovementTemplate : MonoBehaviour
 
     protected virtual void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.layer == GroundLayer)
         {
             _grounded = false;
         }
+    }
+    public virtual void Knockback(Vector2 attackerPosition, float knockbackStrength)
+    {
+        //
     }
 
 }

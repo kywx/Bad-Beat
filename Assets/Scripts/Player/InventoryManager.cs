@@ -20,11 +20,8 @@ public class InventoryManager : MonoBehaviour{
     // test
     public Item testBatteryItem;
     public Item testBatteryItem_2;
-    void Start() { AddItem(testBatteryItem);
-    AddItem(testBatteryItem);
-    AddItem(testBatteryItem);
-    AddItem(testBatteryItem_2);
-    AddItem(testBatteryItem_2); }
+    void Start() {
+     }
     // test end
 
     void Awake(){
@@ -52,6 +49,12 @@ public class InventoryManager : MonoBehaviour{
     inventoryUI.SetActive(willOpen);
     Time.timeScale = willOpen ? 0 : 1; // Pause when open, resume when closed
 }
+
+    public bool HasItem(Item item)
+    {
+        return itemCounts.ContainsKey(item) && itemCounts[item] > 0;
+    }
+
 
 
 
