@@ -28,9 +28,10 @@ public class RatAttack : EnemyAttackTemplate
 
         if (health != null && myhealth.IsAlive == true)
         {
+            health.Knockback(transform.position, _enemyStats.knockbackStrength);
             health.Damage(_attackDamage);
 
-            print("Damage to player by rat");
+            print("Damage/Knockback to player by rat");
         }
     }
 
