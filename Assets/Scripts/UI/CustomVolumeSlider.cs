@@ -1,9 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Custom Volume Slider - Attach to a GameObject with volume sprites
-/// </summary>
 public class CustomVolumeSlider : MonoBehaviour
 {
     [Header("Audio Reference")]
@@ -119,12 +116,17 @@ public class CustomVolumeSlider : MonoBehaviour
 
     private void UpdateAudioVolume()
     {
-        if (audioManager != null)
+        float newVolume = currentLevel / 10f;
+
+        // Use the singleton Audio Manager
+        if (AudioManager.Instance != null)
         {
-            audioManager.volume = currentLevel / 10f;
-            PlayerPrefs.SetFloat("MasterVolume", audioManager.volume);
-            PlayerPrefs.Save();
+            AudioManager.Instance.SetVolume(newVolume);
         }
+
+        // Save the preference
+        PlayerPrefs.SetFloat("MasterVolume", newVolume);
+        PlayerPrefs.Save();
     }
 
     private System.Collections.IEnumerator ShakeIcon()
