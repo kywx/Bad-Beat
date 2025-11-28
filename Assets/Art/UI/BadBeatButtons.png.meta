@@ -74,6 +74,54 @@ TextureImporter:
   - first:
       213: 3910629193035269440
     second: BadBeatButtons_23
+  - first:
+      213: 6914004676148146227
+    second: BadBeatButtons_24
+  - first:
+      213: 2027464545870053833
+    second: BadBeatButtons_25
+  - first:
+      213: -7779498317922065825
+    second: BadBeatButtons_26
+  - first:
+      213: -5740295196695117344
+    second: BadBeatButtons_27
+  - first:
+      213: 9051468935926351530
+    second: BadBeatButtons_28
+  - first:
+      213: -4758986857586248932
+    second: BadBeatButtons_29
+  - first:
+      213: -5593419949728589213
+    second: BadBeatButtons_30
+  - first:
+      213: -6739688116055214045
+    second: BadBeatButtons_31
+  - first:
+      213: -3812525938787163436
+    second: BadBeatButtons_32
+  - first:
+      213: -6229873175316766230
+    second: BadBeatButtons_33
+  - first:
+      213: 7666528547948770520
+    second: BadBeatButtons_34
+  - first:
+      213: 929230630878383381
+    second: BadBeatButtons_35
+  - first:
+      213: 3524862409103002796
+    second: BadBeatButtons_36
+  - first:
+      213: 5531199119304685520
+    second: BadBeatButtons_37
+  - first:
+      213: -1714672138506145761
+    second: BadBeatButtons_38
+  - first:
+      213: -5869899743438077826
+    second: BadBeatButtons_39
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -199,9 +247,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 20
+        y: 17
         width: 250
-        height: 50
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,9 +269,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 250
-        y: 20
+        y: 17
         width: 250
-        height: 50
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,9 +291,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 500
-        y: 20
+        y: 17
         width: 250
-        height: 50
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,9 +313,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 750
-        y: 20
+        y: 17
         width: 250
-        height: 50
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,11 +330,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: BadBeatButtons_4
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 17
+        width: 250
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20126344483de35b0800000000000000
+      internalID: -5386635539254992638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BadBeatButtons_5
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 17
+        width: 250
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba8bee765b1815f0800000000000000
+      internalID: -785848076665648457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BadBeatButtons_6
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 17
+        width: 250
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bd1af0b881245f30800000000000000
+      internalID: 4563309193401605557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c3d06f3b211cfde449ff0a01334b476e
+    spriteID: 391922ea68220474baa3235d0bdcdede
     internalID: 0
     vertices: []
     indices: 
@@ -300,6 +414,9 @@ TextureImporter:
       BadBeatButtons_1: 4963171106745669242
       BadBeatButtons_2: -5057631913729075762
       BadBeatButtons_3: 8714942734543226108
+      BadBeatButtons_4: -5386635539254992638
+      BadBeatButtons_5: -785848076665648457
+      BadBeatButtons_6: 4563309193401605557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
