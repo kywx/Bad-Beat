@@ -1,3 +1,4 @@
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -34,16 +35,49 @@ public class PlayerMovement : MonoBehaviour
 
     private float _coyoteTimer;
 
+    private CameraFollowObject _cameraFollowObject; // added by Joseph following camera tutorial
+    [SerializeField] private GameObject _cameraFollowGO; // GO = GameObject
+    private float _fallSpeedYDampingChangeThreshold;
+
+    private Animator _anim;
+
     private void Awake()
     {
         _isFacingRight = true;
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        _cameraFollowObject = _cameraFollowGO.GetComponent<CameraFollowObject>();
+        _fallSpeedYDampingChangeThreshold = CameraManager.instance._fallSpeedYDampingChangeThreshold;
+    }
+    public bool IsFacingRight
+    {
+        get { return _isFacingRight; }
     }
 
     private void Update()
     {
         CountTimers();
         JumpChecks();
+
+
+        // if player falls past a certain speed
+        if (_rb.linearVelocityY < _fallSpeedYDampingChangeThreshold && !CameraManager.instance.isLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            CameraManager.instance.LerpYDamping(true);
+        }
+        
+        // if player is standing or moving up  
+        if(_rb.linearVelocityY >= 0f && !CameraManager.instance.isLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+        {
+            // reset so it can be called again
+            CameraManager.instance.LerpedFromPlayerFalling = false;
+            CameraManager.instance.LerpYDamping(false);
+        }
+
     }
 
     private void FixedUpdate()
@@ -54,9 +88,16 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded)
         {
             Move(MoveStats.GroundAcceleration, MoveStats.GroundDeceleration, InputManager.Movement);
+
+            if (InputManager.Movement.x != 0)
+            {
+                _anim.SetBool("isRunning", true);
+            }
+            
         } else
         {
             Move(MoveStats.AirAcceleration, MoveStats.AirDeceleration, InputManager.Movement);
+            _anim.SetBool("isRunning", false);
         }
     }
 
@@ -75,35 +116,36 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.linearVelocity = new Vector2(Mathf.Sign(_rb.linearVelocity.x) * maxSpeed, _rb.linearVelocity.y);
         }
-        if (moveInput != Vector2.zero)
-        {
-            TurnCheck(moveInput);
-        }
-
     }
 
     private void TurnCheck(Vector2 moveInput)
     {
-        if (_isFacingRight)
+        float xInput = moveInput.x;
+        if (_isFacingRight && xInput < 0)
         {
             Turn(false);
-        } else if (!_isFacingRight && moveInput.x > 0)
+            _anim.SetBool("isRunning", true);
+        }
+        else if (!_isFacingRight && xInput > 0)
         {
             Turn(true);
+            _anim.SetBool("isRunning", true);
+        }
+        else
+        {
+            _anim.SetBool("isRunning", false);
         }
     }
 
     private void Turn(bool turnRight)
     {
-        if (turnRight)
-        {
-            _isFacingRight = true;
-            transform.Rotate(0f, 180f, 0f);
-        } else
-        {
-            _isFacingRight = false;
-            transform.Rotate(0f, 180f, 0f);
-        }
+        _isFacingRight = turnRight;
+        Vector3 scale = transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * (_isFacingRight ? 1 : -1);
+        transform.localScale = scale;
+
+        // turn the camera
+        _cameraFollowObject.CallTurn();
     }
     #endregion
 
@@ -143,6 +185,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Normal grounded jump
             InitiateJump(1);
+            _anim.SetTrigger("jump");
             if (_jumpReleasedDuringBuffer)
             {
                 _isFastFalling = true;
@@ -154,18 +197,22 @@ public class PlayerMovement : MonoBehaviour
             // While jumping -> double jump
             _isFastFalling = false;
             InitiateJump(1);
+
+            _anim.SetTrigger("jump");
         }
         else if (_jumpBufferTimer > 0f && _isFalling && _numberOfJumpsUsed < MoveStats.NumberOfJumpsAllowed - 1)
         {
             // While falling -> air jump
             _isFastFalling = false;
             InitiateJump(2);
+            _anim.SetTrigger("jump");
         }
         // Landed
         if ((_isJumping || _isFalling) && _isGrounded && VerticalVelocity <= 0f)
         {
             _isJumping = false;
             _isFalling = false;
+            _anim.SetBool("isFalling", false);
             _isFastFalling = false;
             _fastFallTime = 0f;
             _isPastApexThreshold = false;
@@ -216,6 +263,8 @@ public class PlayerMovement : MonoBehaviour
                             _isPastApexThreshold = false;
                             _isJumping = false;
                             _isFalling = true;
+
+                            _anim.SetBool("isFalling", true);
                         }
                     }
                 } else
@@ -236,6 +285,7 @@ public class PlayerMovement : MonoBehaviour
             if (!_isFalling)
             {
                 _isFalling = true;
+                _anim.SetBool("isFalling", true);
             }
         }
 
@@ -258,6 +308,7 @@ public class PlayerMovement : MonoBehaviour
             if (!_isFalling)
             {
                 _isFalling = true;
+                _anim.SetBool("isFalling", true);
             }
             VerticalVelocity += MoveStats.Gravity * Time.fixedDeltaTime;
         }
@@ -281,9 +332,11 @@ public class PlayerMovement : MonoBehaviour
         if (_groundHit.collider != null)
         {
             _isGrounded = true;
+            _anim.SetBool("isGrounded", true);
         } else
         {
             _isGrounded = false;
+            _anim.SetBool("isGrounded", false);
         }
 
         #region Debug Visualization
