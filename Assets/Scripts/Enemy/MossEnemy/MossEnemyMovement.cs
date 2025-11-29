@@ -15,9 +15,15 @@ public class MossEnemyMovement: EnemyMovementTemplate
     private float sightWidth; //vertical range player can be in where moss guy will take the shot.
 
     [SerializeField]
+    private float distanceFromPlayerToTurn; // minimum range player must be on its other side for a turn to happen
+
+    [SerializeField]
     private float groundCheckDistance; //
     [SerializeField]
     private float shootDistance; //distance player can be in 
+
+    [SerializeField]
+    private float _chaseYDistance;
 
     [SerializeField]
     private bool fallOffPlatforms;
@@ -46,7 +52,7 @@ public class MossEnemyMovement: EnemyMovementTemplate
         }
 
         else if (math.abs(playerPos.x - this.transform.position.x) < _startChaseDistance
-            && math.abs(playerPos.y - this.transform.position.y) < 5)  // arbitrary number, please change
+        && math.abs(playerPos.y - this.transform.position.y) < _chaseYDistance)
         {
             _movementType = EnemyMovement.Chase;
         }
@@ -72,7 +78,8 @@ public class MossEnemyMovement: EnemyMovementTemplate
     }
     protected override void RunChase()
     {
-        if(!AvoidFalling() && (_player.transform.position.x - this.transform.position.x) * _groundSpeed < 0)
+        float _playerDistance = _player.transform.position.x - this.transform.position.x;
+        if(!AvoidFalling() && _playerDistance * _groundSpeed < 0 && math.abs(_playerDistance) > distanceFromPlayerToTurn)
         {
             Turn();
         }
@@ -85,7 +92,8 @@ public class MossEnemyMovement: EnemyMovementTemplate
             _attackManager.Shoot(_isFacingRight);
             rb.linearVelocityX = 0;
         }
-        if((_player.transform.position.x - this.transform.position.x) * _groundSpeed < 0)
+        float _playerDistance = _player.transform.position.x - this.transform.position.x;
+        if(_playerDistance * _groundSpeed < 0 && math.abs(_playerDistance) > distanceFromPlayerToTurn)
         {
             Turn();
         }
