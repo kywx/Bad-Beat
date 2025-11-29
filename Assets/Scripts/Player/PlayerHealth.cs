@@ -7,6 +7,8 @@ public class PlayerHealth : MonoBehaviour
 
     public PlayerCombatStatsSO stats;
     private PlayerRespawn RespawnManager;
+    private Rigidbody2D rb;
+    private FlashHit flash;
 
     public GameObject UIManager;
 
@@ -21,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
         RespawnManager = this.GetComponent<PlayerRespawn>();
         _health = stats.MaxHealth;
         iframeTimer = 0;
+        rb = this.GetComponent<Rigidbody2D>();
+        flash = this.GetComponent<FlashHit>();
     }
 
     private void Update()
@@ -36,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         //Debug.Log("Damage: "+dmg);
         //Debug.Log("current health: "+_health);
         if(iframeTimer <= 0){
+            flash.Flash();
             _health -= dmg;
             //Debug.Log("Actually decrease");
             //Debug.Log("current health: "+_health);
@@ -62,5 +67,25 @@ public class PlayerHealth : MonoBehaviour
     {
         _health = stats.MaxHealth;
         //Debug.Log(_health);
+    }
+
+    public void Knockback(Vector2 attackerPosition, float knockbackStrength)
+    {
+        if (iframeTimer <= 0)
+        {
+            //print("knockback the player");
+            rb.linearVelocity = Vector2.zero;
+            int dir;
+            if (attackerPosition.x < this.transform.position.x)
+            {
+                dir = -1;
+            }
+            else
+            {
+                dir = 1;
+            }
+            rb.linearVelocity = new Vector2(dir * knockbackStrength, knockbackStrength);
+        }
+
     }
 }

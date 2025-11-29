@@ -5,17 +5,20 @@ public class RatHealth : EnemyHealthTemplate
     private Rigidbody2D rb;
     private bool isAlive = true;
     private Animator animator;
+    private FlashHit flash;
 
     protected override void Awake()
     {
         base.Awake();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        flash = GetComponent<FlashHit>();
     }
     public override void TakeDamageSimple(float damage)
     {
         _hp -= damage;
         print("Damage to rat HP = " + _hp);
+        flash.Flash();
 
         if (_hp <= 0 && IsAlive) 
         { 
