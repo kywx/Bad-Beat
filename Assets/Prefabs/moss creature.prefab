@@ -199,9 +199,11 @@ MonoBehaviour:
   _patrolPoints: []
   _idleTimer: 0
   rb: {fileID: 7118480077487340171}
-  sightWidth: 1
+  sightWidth: 1.5
+  distanceFromPlayerToTurn: 1.5
   groundCheckDistance: 2
-  shootDistance: 3
+  shootDistance: 4
+  _chaseYDistance: 1
   fallOffPlatforms: 0
 --- !u!114 &8639489502822709468
 MonoBehaviour:
