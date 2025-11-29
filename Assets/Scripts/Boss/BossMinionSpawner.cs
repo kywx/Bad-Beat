@@ -14,11 +14,13 @@ public class BossMinionSpawner : MonoBehaviour
     [SerializeField]
     Collider colliderOfSummoner; //collider used for rigidbody collision by the parent. Used to disable collision between target and parent.
 
+    private bool enabled = true;
+
     private float timer = 0;
 
     private void Update()
     {
-        if (timed)
+        if (timed && enabled)
         {
             if(timer <= 0)
             {
@@ -33,6 +35,8 @@ public class BossMinionSpawner : MonoBehaviour
     }
     public void spawn()
     {
+        if(!enabled) return;
+        
         GameObject target = Instantiate(summonTarget, this.transform);
         Debug.Log("spawn");
         
@@ -44,5 +48,9 @@ public class BossMinionSpawner : MonoBehaviour
                 Physics.IgnoreCollision(col, colliderOfSummoner);            
             }  
         }
+    }
+    public void disable() //public method to stop the spawning when the boss loses access to it.
+    {
+        enabled = false;
     }
 }
