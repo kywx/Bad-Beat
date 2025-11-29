@@ -12,8 +12,9 @@ public class PlayerRespawn : MonoBehaviour {
 
     private Vector2 spawn_point;
 
-    public void UpdateCheckpoint(Vector2 new_pos){
-        spawn_point = new_pos;
+    public void UpdateCheckpoint(Vector2 new_pos, float x_coor){
+        if(x_coor >= spawn_point.x)
+            spawn_point = new_pos;
     }
 
     public void Awake(){
@@ -26,7 +27,7 @@ public class PlayerRespawn : MonoBehaviour {
         BlackImage.color = Color.black;
         if (HealthManager != null)
         {
-            //HealthManager.HealToMax();
+            HealthManager.HealToMax();
         }
         if (PoisonManager != null)
         {
