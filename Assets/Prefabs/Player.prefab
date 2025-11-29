@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: -7897508326606065911}
   - component: {fileID: 2948915433313601299}
   - component: {fileID: 5128264925706873949}
+  - component: {fileID: 8271136799669304894}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -698,7 +699,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -7791752638867363331, guid: d80c059db0557b44d9656b4f013ecf10, type: 3}
-  m_Color: {r: 0.690566, g: 0.690566, b: 0.690566, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -765,6 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   default_spawn_point: {x: 0, y: 0}
   BlackImage: {fileID: 0}
+  BImage: {fileID: 0}
   FadeDuration: 1
 --- !u!114 &1640284236270119716
 MonoBehaviour:
@@ -779,6 +781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 896690c19b1f2994d9d7b3e74e6f6327, type: 2}
+  UIManager: {fileID: 0}
 --- !u!114 &-7897508326606065911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,6 +834,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8271136799669304894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670270333212235005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3788ee0fa1c2f1147971e0a113b8a878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 589b052507a590d42be9604f6d50e278, type: 2}
+  duration: 0.2
 --- !u!1 &8730721289464405568
 GameObject:
   m_ObjectHideFlags: 0

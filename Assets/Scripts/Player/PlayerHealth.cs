@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public PlayerCombatStatsSO stats;
     private PlayerRespawn RespawnManager;
     private Rigidbody2D rb;
+    private FlashHit flash;
 
     public GameObject UIManager;
 
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
         _health = stats.MaxHealth;
         iframeTimer = 0;
         rb = this.GetComponent<Rigidbody2D>();
+        flash = this.GetComponent<FlashHit>();
     }
 
     private void Update()
@@ -38,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         //Debug.Log("Damage: "+dmg);
         //Debug.Log("current health: "+_health);
         if(iframeTimer <= 0){
+            flash.Flash();
             _health -= dmg;
             //Debug.Log("Actually decrease");
             //Debug.Log("current health: "+_health);
