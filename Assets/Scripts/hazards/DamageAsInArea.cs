@@ -13,10 +13,17 @@ public class DamageAsInArea : MonoBehaviour {
 
     void OnCollisionStay2D(Collision2D collision) {
         PlayerHealth health = collision.gameObject.GetComponent<PlayerHealth>();
+        EnemyHealthTemplate enemy = collision.gameObject.GetComponent<EnemyHealthTemplate>();
+
         if (health != null && !debounce) {
             StartCoroutine(Debounce(0.5f));
             health.Damage(damage_value);
             collision.gameObject.GetComponent<PlayerRespawn>().Warp();
+        }
+
+        if(enemy != null)
+        {
+            enemy.Die();
         }
     }
 }
