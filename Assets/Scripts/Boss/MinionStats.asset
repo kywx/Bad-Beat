@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0ee7ea70214f1f4faa7546b49366ff6, type: 3}
-  m_Name: RatStats
+  m_Name: MinionStats
   m_EditorClassIdentifier: 
-  hp: 3
+  hp: 0
   armor: 0
   resistanceModifier: 0
   vulnerabilityModifier: 0
   weakness: 0
   strength: 0
-  groundSpeed: 2
+  groundSpeed: 0
   airSpeed: 0
   knockbackResistance: 0
   stoppingDistance: 0
@@ -26,6 +26,6 @@ MonoBehaviour:
   minAttackRange: 0
   maxAttackRange: 0
   attackCooldown: 0
-  attackDamage: 1
-  knockbackStrength: 200
+  attackDamage: 0
+  knockbackStrength: 0
   probability: 0
