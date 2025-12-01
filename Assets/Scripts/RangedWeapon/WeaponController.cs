@@ -21,12 +21,15 @@ public class WeaponController : MonoBehaviour
     // cached variables
     private Vector3 mouseWorldPos;
     private Vector2 attackDirection;
+
+    private Animator _anim;
     
     void Awake()
     {
         // cache components
         cachedTransform = transform;
         mainCamera = Camera.main; // cache main camera citation
+        _anim = GetComponent<Animator>();
     }
     
     void Start()
@@ -74,6 +77,8 @@ public class WeaponController : MonoBehaviour
             // calculate attack direction
             attackDirection = GetAttackDirection();
             currentWeapon.Attack(attackDirection, attackPoint);
+            
+            _anim.SetTrigger("attackRanged");
         }
     }
     

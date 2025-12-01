@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 7851345210075226513}
   - component: {fileID: 7069009903698790846}
   - component: {fileID: 2250786000303111342}
+  - component: {fileID: 7483383396527791732}
   m_Layer: 0
   m_Name: puppet_summon_0
   m_TagString: Enemy
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d045ae5c98e2c3241b319c7991741308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: f48362da0c49a8846b108f3d82fb2622, type: 2}
+  _enemyStats: {fileID: 11400000, guid: 1caf92ef2d7b146419618da59828e63c, type: 2}
   _movementType: 0
   _patrolPoints: []
   _idleTimer: 1
@@ -263,4 +264,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3228bcd98fc8a44a1e8cdd9eb37124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStats: {fileID: 11400000, guid: c137245bc2f2632419c3846f84abf776, type: 2}
+  _enemyStats: {fileID: 11400000, guid: 1caf92ef2d7b146419618da59828e63c, type: 2}
+--- !u!114 &7483383396527791732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4372734586926632398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3788ee0fa1c2f1147971e0a113b8a878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 589b052507a590d42be9604f6d50e278, type: 2}
+  duration: 0.2
