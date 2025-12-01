@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2156151245551334986}
   - component: {fileID: 5811483094353231428}
-  - component: {fileID: 940686509825553064}
   - component: {fileID: 4151491543008600348}
+  - component: {fileID: 8565577112336004545}
   m_Layer: 0
-  m_Name: MiniBossProjectile1
+  m_Name: MiniBossProject_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8679245, g: 0.020469915, b: 0.12522824, a: 1}
+  m_Color: {r: 0.8867924, g: 0.13351761, b: 0.012548926, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,23 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &940686509825553064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789693329843990131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ef319106fae7384790f3af08345b986, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage_value: 5
-  gravity: 0
-  _y_velocity: 0
-  _x_velocity: 10
-  lifespan: 4
 --- !u!58 &4151491543008600348
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,3 +125,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &8565577112336004545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789693329843990131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd25e14a6ccc24681bfe823ac86685d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage_value: 1
+  gravity: 0
+  _y_velocity: 0
+  _x_velocity: 5
+  lifespan: 5
