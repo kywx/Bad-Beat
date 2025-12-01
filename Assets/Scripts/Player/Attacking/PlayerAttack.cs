@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour
     private bool specialMeleeReleased;
     [SerializeField] int specialMeleeChargeFrames;
 
+    [SerializeField] private Animator anim;
+
     private void Start(){
         specialMeleeCharging = false;
         specialMeleeCharge = 0;
@@ -87,6 +89,7 @@ public class PlayerAttack : MonoBehaviour
         //Front Attack
         else{
             enemy = Physics2D.OverlapCircleAll(frontAttackPoint.transform.position, radius, enemies);
+            anim.SetTrigger("attackPrimary");
         }
 
         foreach (Collider2D enemyGameObject in enemy){
