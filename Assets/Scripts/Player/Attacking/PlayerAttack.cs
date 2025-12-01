@@ -96,13 +96,21 @@ public class PlayerAttack : MonoBehaviour
             EnemyHealthTemplate attackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyHealthTemplate>();
             EnemyMovementTemplate knockbackEnemy = enemyGameObject.gameObject.GetComponentInParent<EnemyMovementTemplate>();
 
-            if (attackEnemy != null && knockbackEnemy != null)
+            if (attackEnemy != null)
             {
                 attackEnemy.TakeDamageSimple(stats.AttackDamage);
-                knockbackEnemy.Knockback(this.transform.position, stats.KnockbackForce);
             } else
             {
-                print("EnemyHealthTemplate not found");
+                print("EnemyHealthTemplate not found so can't damage");
+            }
+
+            if (knockbackEnemy != null)
+            {
+                knockbackEnemy.Knockback(this.transform.position, stats.KnockbackForce);
+            }
+            else
+            {
+                print("EnemyMovementTemplate not found so no knockback");
             }
             if (bounce){
                 playerRB.AddForce(transform.up * pogoForce);

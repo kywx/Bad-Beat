@@ -50,8 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        _cameraFollowObject = _cameraFollowGO.GetComponent<CameraFollowObject>();
-        _fallSpeedYDampingChangeThreshold = CameraManager.instance._fallSpeedYDampingChangeThreshold;
+        if (CameraManager.instance != null)
+        {
+            _cameraFollowObject = _cameraFollowGO.GetComponent<CameraFollowObject>();
+            _fallSpeedYDampingChangeThreshold = CameraManager.instance._fallSpeedYDampingChangeThreshold;
+        }
     }
     public bool IsFacingRight
     {
@@ -64,18 +67,21 @@ public class PlayerMovement : MonoBehaviour
         JumpChecks();
 
 
-        // if player falls past a certain speed
-        if (_rb.linearVelocityY < _fallSpeedYDampingChangeThreshold && !CameraManager.instance.isLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+        if (CameraManager.instance != null )
         {
-            CameraManager.instance.LerpYDamping(true);
-        }
-        
-        // if player is standing or moving up  
-        if(_rb.linearVelocityY >= 0f && !CameraManager.instance.isLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
-        {
-            // reset so it can be called again
-            CameraManager.instance.LerpedFromPlayerFalling = false;
-            CameraManager.instance.LerpYDamping(false);
+            // if player falls past a certain speed
+            if (_rb.linearVelocityY < _fallSpeedYDampingChangeThreshold && !CameraManager.instance.isLerpingYDamping && !CameraManager.instance.LerpedFromPlayerFalling)
+            {
+                CameraManager.instance.LerpYDamping(true);
+            }
+
+            // if player is standing or moving up  
+            if (_rb.linearVelocityY >= 0f && !CameraManager.instance.isLerpingYDamping && CameraManager.instance.LerpedFromPlayerFalling)
+            {
+                // reset so it can be called again
+                CameraManager.instance.LerpedFromPlayerFalling = false;
+                CameraManager.instance.LerpYDamping(false);
+            }
         }
 
     }
@@ -145,7 +151,8 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = scale;
 
         // turn the camera
-        _cameraFollowObject.CallTurn();
+        if (CameraManager.instance != null)
+            _cameraFollowObject.CallTurn();
     }
     #endregion
 
