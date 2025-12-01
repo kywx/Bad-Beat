@@ -27,5 +27,5 @@ MonoBehaviour:
   maxAttackRange: 0
   attackCooldown: 0
   attackDamage: 1
-  knockbackStrength: 2
+  knockbackStrength: 200
   probability: 0
