@@ -9,6 +9,7 @@ public class Checkpoint : MonoBehaviour {
             Vector2 new_spawn = this.transform.position;
 
             player.UpdateCheckpoint(new_spawn, this.transform.position.x);
+            player.GetComponent<PlayerHealth>().HealToMax();
         }
     }
 }
