@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MiniBossProjectile : OneInstanceDamage
+public class MiniBossProjectile1 : OneInstanceDamage
 {
     [SerializeField]
     private float gravity = 0f;         // Can Tweaked if want non straight 
