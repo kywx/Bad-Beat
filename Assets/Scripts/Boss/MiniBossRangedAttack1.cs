@@ -13,6 +13,8 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
 
     private float _cooldown_timer = 2f;
 
+    public bool _canShootSingle = true;
+
     void Update()
     {
         _cooldown_timer -= Time.deltaTime;
@@ -22,7 +24,7 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
     {
         if (_cooldown_timer > 0f) return;
 
-        if (_useSingle)
+        if (_useSingle && _canShootSingle)
         {
             Shoot(dir);                 // single shot
         }
