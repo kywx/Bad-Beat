@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Conductor : MonoBehaviour
 {
@@ -59,5 +60,10 @@ public class Conductor : MonoBehaviour
         loopPositionInBeats = songPositionInBeats - completedLoops * beatsPerLoop;
 
         loopPositionInAnalog = loopPositionInBeats / beatsPerLoop;
+    }
+
+    public void ChangeMusic(AudioResource audio)
+    {
+        musicSource.resource = audio;
     }
 }

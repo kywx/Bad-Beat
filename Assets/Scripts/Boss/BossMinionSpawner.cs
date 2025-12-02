@@ -12,9 +12,9 @@ public class BossMinionSpawner : MonoBehaviour
     GameObject summonTarget;
 
     [SerializeField]
-    Collider colliderOfSummoner; //collider used for rigidbody collision by the parent. Used to disable collision between target and parent.
+    Collider2D colliderOfSummoner; //collider used for rigidbody collision by the parent. Used to disable collision between target and parent.
 
-    private bool enabled = true;
+    new private bool enabled = true;
 
     private float timer = 0;
 
@@ -41,11 +41,11 @@ public class BossMinionSpawner : MonoBehaviour
         Debug.Log("spawn");
         
         if(colliderOfSummoner != null){
-            Physics.IgnoreCollision(target.GetComponent<Collider>(), colliderOfSummoner);
-            Collider[] colliders = target.GetComponentsInChildren<Collider>();
-            foreach (Collider col in colliders)
+            Physics2D.IgnoreCollision(target.GetComponent<Collider2D>(), colliderOfSummoner);
+            Collider2D[] colliders = target.GetComponentsInChildren<Collider2D>();
+            foreach (Collider2D col in colliders)
             {
-                Physics.IgnoreCollision(col, colliderOfSummoner);            
+                Physics2D.IgnoreCollision(col, colliderOfSummoner);            
             }  
         }
     }
