@@ -15953,6 +15953,7 @@ GameObject:
   - component: {fileID: 1828324248}
   - component: {fileID: 1828324249}
   - component: {fileID: 1828324250}
+  - component: {fileID: 1828324251}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -16089,6 +16090,7 @@ MonoBehaviour:
   projectilePrefab_1: {fileID: 4789693329843990131, guid: 8e7bad7c2e5fc4c28b876d2e09b28b0d, type: 3}
   projectilePrefab_2: {fileID: 4789693329843990131, guid: 6e75bbd6b601f41c89712f0fd54174f3, type: 3}
   projectileSpawnPoint: {fileID: 1474044419}
+  _canShootSingle: 1
 --- !u!50 &1828324248
 Rigidbody2D:
   serializedVersion: 5
@@ -16162,12 +16164,34 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 10
+--- !u!95 &1828324251
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828324238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 540f460e16f639047b844a8cff318c66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1842989945
 GameObject:
   m_ObjectHideFlags: 0

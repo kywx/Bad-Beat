@@ -19,6 +19,7 @@ public class BossHealth : EnemyHealthTemplate
     private float maxHp;
 
     private MiniBossRangedAttack1 minibossRanged;
+    private BossMovement bossMovement;
 
     protected override void Awake()
     {
@@ -32,6 +33,9 @@ public class BossHealth : EnemyHealthTemplate
         maxHp = _hp;
 
         minibossRanged = GetComponent<MiniBossRangedAttack1>();
+        bossMovement = GetComponent<BossMovement>();
+
+        bossMovement.enabled = false;
     }
     public override void TakeDamageSimple(float damage)
     {
@@ -45,15 +49,21 @@ public class BossHealth : EnemyHealthTemplate
             //Animation condition IsAlive == false, will start the fadeTimer in fadeOut script
             //Destroy(gameObject) will be called when fadeTimer == 0. 
 
+            animator.SetTrigger("die");
+
         }
 
         if (_hp < maxHp * 0.667  && phase == 0) // boss at 66% health
         {
             phase++;
 
+            GetComponent<BossMinionSpawner>().enabled = false; 
+
+            animator.SetInteger("phase", phase);
+
             Conductor.instance.ChangeMusic(bossTracks[phase]);
 
-            // DISABLE SUMMON ATTACK            
+                   
         }
 
         if (_hp < maxHp * 0.333  && phase == 1) // boss at 33% health
@@ -61,6 +71,8 @@ public class BossHealth : EnemyHealthTemplate
             phase++;
 
             minibossRanged._canShootSingle = false; // disables second attack
+
+            animator.SetInteger("phase", phase);
 
             Conductor.instance.ChangeMusic(bossTracks[phase]);
         }
@@ -95,11 +107,18 @@ public class BossHealth : EnemyHealthTemplate
     {
         if (isAsleep)
         {
-            animator.SetTrigger(""); // Josh tell me the trigger name
+            animator.SetTrigger("intro");
 
-            isAsleep = false;
+            //isAsleep = false;
             Conductor.instance.ChangeMusic(bossTracks[0]);
         }
+    }
+
+    public void WakeUp() // for an animation event
+    {
+        isAsleep = false;
+        animator.SetBool("isAsleep", isAsleep);
+        bossMovement.enabled = true;
     }
 
 }
