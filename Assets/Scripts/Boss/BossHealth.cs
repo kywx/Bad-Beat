@@ -13,7 +13,7 @@ public class BossHealth : EnemyHealthTemplate
 
     [SerializeField] private List<AudioResource> bossTracks;
 
-    private int phase = 0;
+    public int phase = 0;
     private bool isAsleep;
 
     private float maxHp;

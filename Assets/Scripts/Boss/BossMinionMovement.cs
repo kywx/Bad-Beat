@@ -16,6 +16,12 @@ public class BossMinionMovement : EnemyMovementTemplate
 
     private SpriteRenderer spr;
 
+    private void Update() {
+        if (health.IsAlive == false) {
+            Destroy(this.gameObject); // TODO: ADD DEATH ANIMATION
+        }
+    }
+
     protected override void Awake()
     {
         base.Awake();
