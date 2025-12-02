@@ -49,8 +49,12 @@ public class MiniBossProjectile1 : OneInstanceDamage
         // Optionally: Add splash effect logic here!
     }
 
-    public void setDirection(bool goRight)
+    public void SetDirection(Vector2 direction)
     {
-        _x_velocity = Mathf.Abs(_x_velocity) * (goRight ? 1 : -1);
+        Vector2 normalizedDir = direction.normalized;
+        float originalSpeed = new Vector2(_x_velocity, _y_velocity).magnitude;
+        Vector2 newVelocity = normalizedDir * originalSpeed;
+        _x_velocity = newVelocity.x;
+        _y_velocity = newVelocity.y;
     }
 }
