@@ -14,7 +14,7 @@ public class BossHealth : EnemyHealthTemplate
     [SerializeField] private List<AudioResource> bossTracks;
 
     public int phase = 0;
-    private bool isAsleep;
+    private bool isAsleep = true;
 
     private float maxHp;
 
@@ -39,6 +39,10 @@ public class BossHealth : EnemyHealthTemplate
     }
     public override void TakeDamageSimple(float damage)
     {
+        if(isAsleep)
+        {
+            return;
+        }
         _hp -= damage;
         print("Damage to boss. HP = " + _hp);
         flash.Flash();
@@ -103,14 +107,18 @@ public class BossHealth : EnemyHealthTemplate
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D other) 
     {
-        if (isAsleep)
+        if (isAsleep && other.gameObject.tag == "Player")
         {
             animator.SetTrigger("intro");
+            animator.SetInteger("phase", phase);
 
             //isAsleep = false;
             Conductor.instance.ChangeMusic(bossTracks[0]);
+
+            Debug.Log("boss woke up");
         }
     }
 

@@ -23,9 +23,9 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
         int randomNumber = Random.Range(1, 4 - boss.GetComponent<BossHealth>().phase);
         
         if (randomNumber == 1) {
-            StartCoroutine(DoubleShootRoutine(dir));  // double shot
+            StartCoroutine(DoubleShootRoutine(target));  // double shot
         } else if (randomNumber == 2) {
-            Shoot(dir);                 // single shot
+            Shoot(target);                 // single shot
         } else {
             boss.GetComponent<BossMinionSpawner>().spawn();
         }
