@@ -26,6 +26,7 @@ public class BossMinionSpawner : MonoBehaviour
             {
                 spawn();
                 timer = cooldown;
+                Debug.Log(timer);
             }
             else
             {
@@ -33,6 +34,7 @@ public class BossMinionSpawner : MonoBehaviour
             }
         }
     }
+
     public void spawn()
     {
         if(!enabled) return;
