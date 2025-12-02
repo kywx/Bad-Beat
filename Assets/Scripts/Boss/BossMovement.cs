@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Threading.Tasks;
+using System.Collections;
 
 public class BossMovement : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class BossMovement : MonoBehaviour
 
     public float moveSpeed;
     public float delay;
-    public float attackRange = 5f;
+    public float attackRange = 20f;
 
     private Transform curTarget;
     private bool delayed;
@@ -17,6 +18,8 @@ public class BossMovement : MonoBehaviour
     private Transform player;
     private MiniBossRangedAttack1 rangedAttack;   // your attack script
     private bool isFacingRight = true;
+
+    private bool debounce = false;
 
     void Start()
     {
@@ -40,7 +43,7 @@ public class BossMovement : MonoBehaviour
         if (player != null)
         {
             HandleFacing();     // face the player if needed [web:82][web:85]
-            HandleRangedAttack();
+            StartCoroutine(Attack());
         }
 
         if (!delayed)
@@ -58,6 +61,15 @@ public class BossMovement : MonoBehaviour
                 await Task.Delay(TimeSpan.FromSeconds(delay));   // your existing wait
                 delayed = false;
             }
+        }
+    }
+
+    private IEnumerator Attack() {
+        if (!debounce) {
+            debounce = true;
+            HandleRangedAttack();
+            yield return new WaitForSeconds(2.5f);
+            debounce = false;
         }
     }
 

@@ -18,8 +18,10 @@ public class BossMinionSpawner : MonoBehaviour
 
     private float timer = 0;
 
+    /*
     private void Update()
     {
+        
         if (timed && enabled)
         {
             if(timer <= 0)
@@ -33,7 +35,8 @@ public class BossMinionSpawner : MonoBehaviour
                 timer -= Time.deltaTime;
             }
         }
-    }
+}
+*/
 
     public void spawn()
     {

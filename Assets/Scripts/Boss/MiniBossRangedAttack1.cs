@@ -15,6 +15,8 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
 
     public bool _canShootSingle = true;
 
+    public GameObject boss;
+
     void Update()
     {
         _cooldown_timer -= Time.deltaTime;
@@ -22,6 +24,17 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
 
     public void PerformAttack(bool dir)
     {
+        int randomNumber = Random.Range(1, 4 - boss.GetComponent<BossHealth>().phase);
+        
+        if (randomNumber == 1) {
+            StartCoroutine(DoubleShootRoutine(dir));  // double shot
+        } else if (randomNumber == 2) {
+            Shoot(dir);                 // single shot
+        } else {
+            boss.GetComponent<BossMinionSpawner>().spawn();
+        }
+
+        /*
         if (_cooldown_timer > 0f) return;
 
         if (_useSingle && _canShootSingle)
@@ -35,6 +48,7 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
 
         _useSingle = !_useSingle; 
         _cooldown_timer = _attackCooldown;      // toggle for next time [web:103][web:114]
+        */
     }
 
     protected void RangedAttack(bool dir)
