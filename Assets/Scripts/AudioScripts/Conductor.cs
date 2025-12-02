@@ -65,5 +65,8 @@ public class Conductor : MonoBehaviour
     public void ChangeMusic(AudioResource audio)
     {
         musicSource.resource = audio;
+
+        musicSource.time = songPosition;
+        musicSource.Play();
     }
 }
