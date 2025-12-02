@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MiniBossRangedAttack1 : EnemyAttackTemplate
@@ -8,11 +7,8 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
     [SerializeField] private GameObject projectilePrefab_2;
     [SerializeField] private GameObject projectileSpawnPoint;
 
-    // true = single, false = double
     private bool _useSingle = true;
-
     private float _cooldown_timer = 2f;
-
     public bool _canShootSingle = true;
 
     public GameObject boss;
@@ -22,7 +18,7 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
         _cooldown_timer -= Time.deltaTime;
     }
 
-    public void PerformAttack(bool dir)
+    public void PerformAttack(Transform target)
     {
         int randomNumber = Random.Range(1, 4 - boss.GetComponent<BossHealth>().phase);
         
@@ -39,11 +35,11 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
 
         if (_useSingle && _canShootSingle)
         {
-            Shoot(dir);                 // single shot
+            Shoot(target);
         }
         else
         {
-            StartCoroutine(DoubleShootRoutine(dir));  // double shot
+            StartCoroutine(DoubleShootRoutine(target));
         }
 
         _useSingle = !_useSingle; 
@@ -51,36 +47,42 @@ public class MiniBossRangedAttack1 : EnemyAttackTemplate
         */
     }
 
-    protected void RangedAttack(bool dir)
+    protected void RangedAttack(Transform target)
     {
+        Vector2 dir = (target.position - projectileSpawnPoint.transform.position).normalized;
+        Debug.Log("Direction to target: " + dir);
         GameObject projectile = Instantiate(projectilePrefab_1,
                                             projectileSpawnPoint.transform.position,
-                                            transform.rotation);
+                                            Quaternion.identity);
         MiniBossProjectile1 script = projectile.GetComponent<MiniBossProjectile1>();
-        script.setDirection(dir);
+        script.SetDirection(dir);
     }
 
-    protected void RangedAttackCurve(bool dir)
+    protected void RangedAttackCurve(Transform target)
     {
+        Vector2 dir = target.position - projectileSpawnPoint.transform.position;
+        dir.y = 0;                      // Zero out the vertical component
+        dir = dir.normalized;           // Normalize to get direction with length 1
+
         GameObject projectile = Instantiate(projectilePrefab_2,
                                             projectileSpawnPoint.transform.position,
-                                            transform.rotation);
+                                            Quaternion.identity);
         MiniBossProjectile2 script = projectile.GetComponent<MiniBossProjectile2>();
-        script.setDirection(dir);
+        script.SetDirection(dir);
     }
 
-    public void Shoot(bool dir)
+    public void Shoot(Transform target)
     {
         if (_cooldown_timer <= 0f)
         {
-            RangedAttack(dir);
+            RangedAttack(target);
         }
     }
 
-    private IEnumerator DoubleShootRoutine(bool dir)
+    private IEnumerator DoubleShootRoutine(Transform target)
     {
-        RangedAttackCurve(dir);
+        RangedAttackCurve(target);
         yield return new WaitForSeconds(0.05f);
-        RangedAttackCurve(dir);
+        RangedAttackCurve(target);
     }
 }

@@ -102,7 +102,7 @@ public class BossMovement : MonoBehaviour
         {
             // dir = true if shooting right, false if shooting left (adapt to your script)
             bool dir = isFacingRight;
-            rangedAttack.PerformAttack(dir);     // call the alternating shoot/double-shoot method
+            rangedAttack.PerformAttack(player);     // call the alternating shoot/double-shoot method
         }
     }
 }
